@@ -18,6 +18,10 @@ function PersonalityTestXBlockStudio(runtime, element) {
                 });
             }
         });
+
+    });
+    $(element).find('.action-cancel').bind('click', function() {
+        runtime.notify('cancel', {});
     });
   });
 }
