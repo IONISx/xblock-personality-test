@@ -4,7 +4,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
         var handlerUrl = runtime.handlerUrl(element, 'get_questions');
         $.post(handlerUrl, '{}')
             .done(function (response) {
-                if (response.result === 'success') {
+                if (response.success) {
                     var questions = JSON.parse(response['questions']);
                     var myForm = $('#personality-test-form', element);
 
@@ -19,8 +19,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         select.append(opt);
 
                         question['answers'].forEach(function (answer) {
-                            console.log(answer);
-                            var option = new Option(answer.answer, answer.answer);
+                            var option = new Option(answer.answer, question['id']);
                             select.append(option);
                         });
                         questionDiv.append(span);
@@ -39,10 +38,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     myForm.append(submitDiv);
                 }
                 else {
-                    runtime.notify('error',  {
-                        title: 'Error : Init failed.',
-                        message: 'An error occured while loading the PersonalityTestXBlockStudent form !'
-                    });
+                    console.error('error');
                 }
             });
     }

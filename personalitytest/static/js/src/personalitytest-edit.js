@@ -1,6 +1,23 @@
 /* Javascript for PersonalityTestXBlock. */
 function PersonalityTestXBlockStudio(runtime, element) {
     $(function () {
-        /* Here's where you'd do things on page load. */
+      $(element).find('.save-button').bind('click', function () {
+        var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
+        var data =  { quizz: $('#personality-test-quizz-input', element).val() };
+
+        runtime.notify('save', { state: 'start' });
+        $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
+            if (response.success) {
+              console.log("Saved ! ");
+                runtime.notify('save', { state: 'end' });
+            }
+            else {
+                runtime.notify('error',  {
+                    title: 'Error : save failed.',
+                    message: 'Invalid JSON string !'
+                });
+            }
+        });
     });
+  });
 }

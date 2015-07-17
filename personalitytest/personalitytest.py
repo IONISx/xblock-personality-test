@@ -57,18 +57,24 @@ class PersonalityTestXBlock(XBlock):
 
         self.questions = json.dumps(questions)
 
+    def isInitialised(self):
+        if not self.quizz and not self.questions:
+            return False
+        else:
+            return True
+
     # TO-DO: change this view to display your data your own way.
     def student_view(self, context=None):
         '''
         The primary view of the PersonalityTestXBlock, shown to students
         when viewing courses.
         '''
-
+        #if not self.isInitialised():
         self.init_quizz(self.resource_string('static/data.json'))
 
         context = {
             'quizz': self.questions,
-            'result': 'success',
+            'success': True,
         }
 
         html = self.render_template('static/html/personalitytest-view.html', context)
@@ -86,7 +92,8 @@ class PersonalityTestXBlock(XBlock):
         when viewing courses.
         '''
         context = {
-            'result': 'success',
+            'quizz': self.quizz,
+            'success': True,
         }
         html = self.render_template('static/html/personalitytest-edit.html', context)
 
@@ -99,13 +106,31 @@ class PersonalityTestXBlock(XBlock):
     @XBlock.json_handler
     def get_questions(self, data, suffix=''):
         """
-        The updating handler.
+        Return the questions json.
         """
 
         return {
-            'result': 'success',
+            'success': True,
             'questions': self.questions
         }
+
+    @XBlock.json_handler
+    def studio_submit(self, data, suffix=''):
+        """
+        The updating handler.
+        """
+
+        self.init_quizz(data)
+
+        if self.isInitialised():
+            return {
+                'success': True,
+                'questions': self.questions
+            }
+        else:
+            return {
+                'success': False,
+            }
 
 
     # TO-DO: change this to create the scenarios you'd like to see in the

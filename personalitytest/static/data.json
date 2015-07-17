@@ -5,23 +5,23 @@
     { "title": "Chercheur", "description": "vous êtes Chercheur. Il serait peut-être temps de penser à trouver" }
   ],
   "questions": [
-    { "description": "A un moment ou à un autre de votre existence, vous avez été pris par la démangeaison d'écrire (ou de créer une oeuvre d'art), ne serait-ce que pour votre plaisir personnel.",
+    { "id": "q1",  "description": "A un moment ou à un autre de votre existence, vous avez été pris par la démangeaison d'écrire (ou de créer une oeuvre d'art), ne serait-ce que pour votre plaisir personnel.",
       "answers": [{"answer": "oui", "categories": "Imaginatif" },{"answer": "non", "categories": ""}]},
-    { "description": "Il vous est souvent arrivé de vous apesantir longuement sur un problème sans en entrevoir la solution et de constater que celle-ci surgissait dans votre esprit à un moment où vous ne vous y attendiez pas, sans pouvoir déterminer par quel cheminement elle s'était imposée à vous.",
+    { "id": "q2", "description": "Il vous est souvent arrivé de vous apesantir longuement sur un problème sans en entrevoir la solution et de constater que celle-ci surgissait dans votre esprit à un moment où vous ne vous y attendiez pas, sans pouvoir déterminer par quel cheminement elle s'était imposée à vous.",
       "answers": [{"answer": "oui", "categories": "Chercheur" },{"answer": "non", "categories": ""}]},
-    { "description": "A Il vous est habituellement assez pénible de sacrifier à des coutumes, à des usages, à des conventions dont la nécessité ne vous paraît pas évidente (par exemple : adresser des voeux, assister à une cérémonie) et vous aimeriez bien en être dispensé.",
+    { "id": "q3", "description": "A Il vous est habituellement assez pénible de sacrifier à des coutumes, à des usages, à des conventions dont la nécessité ne vous paraît pas évidente (par exemple : adresser des voeux, assister à une cérémonie) et vous aimeriez bien en être dispensé.",
       "answers": [{"answer": "oui", "categories": "Novateur" },{"answer": "non", "categories": ""}]},
-    { "description": "Vous éprouvez une vive admiration pour un homme ou une femme dont les travaux font autorité et dont vous avez fait en quelque sorte votre maître à penser, votre guide.",
+    { "id": "q4", "description": "Vous éprouvez une vive admiration pour un homme ou une femme dont les travaux font autorité et dont vous avez fait en quelque sorte votre maître à penser, votre guide.",
       "answers": [{"answer": "oui", "categories": ""},{"answer": "non", "categories": "Novateur" }]},
-    { "description": "Dans des situations critiques, inattendues, réclamant d'urgence une solution, vous avez fait preuve d'un sang-froid qui, après coup, vous a vous-même étonné. ",
+    { "id": "q5", "description": "Dans des situations critiques, inattendues, réclamant d'urgence une solution, vous avez fait preuve d'un sang-froid qui, après coup, vous a vous-même étonné. ",
       "answers": [{"answer": "oui", "categories": ""},{"answer": "non", "categories": "Imaginatif" }]},
-    { "description": "Quand vous lisez un article qui expose une théorie nouvelle, vous êtes facilement emballé et vous cherchez aussitôt à en savoir plus long sur le sujet.",
+    { "id": "q6", "description": "Quand vous lisez un article qui expose une théorie nouvelle, vous êtes facilement emballé et vous cherchez aussitôt à en savoir plus long sur le sujet.",
       "answers": [{"answer": "oui", "categories": ""},{"answer": "non", "categories": "Chercheur" }]},
-    { "description": "Quand on observe l'évolution des moeurs, on est obligé de constater que la morale est une chose assez contingente (en matière sexuelle, par exemple, certains sujets tabous deviennent anodins, tandis que dans d'autres domaines, comme le respect de la vie, nos contemporains se posent des cas de conscience qui n'auraient pas effleuré nos ancêtres). ",
+    { "id": "q7", "description": "Quand on observe l'évolution des moeurs, on est obligé de constater que la morale est une chose assez contingente (en matière sexuelle, par exemple, certains sujets tabous deviennent anodins, tandis que dans d'autres domaines, comme le respect de la vie, nos contemporains se posent des cas de conscience qui n'auraient pas effleuré nos ancêtres). ",
       "answers": [{"answer": "oui", "categories": "Novateur" },{"answer": "non", "categories": ""}]},
-    { "description": "Aussi loin que vous remontiez dans vos souvenirs, vous n'avez jamais douté réellement de vos capacités, vous avez toujours su que vous étiez appelé tôt ou tard à réaliser quelque chose qui sorte un peu de l'ordinaire. ",
+    { "id": "q8", "description": "Aussi loin que vous remontiez dans vos souvenirs, vous n'avez jamais douté réellement de vos capacités, vous avez toujours su que vous étiez appelé tôt ou tard à réaliser quelque chose qui sorte un peu de l'ordinaire. ",
       "answers": [{"answer": "oui", "categories": "Novateur;Chercheur" },{"answer": "non", "categories": ""}]},
-    { "description": "Vous êtes toujours à l'affût des nouveautés, vous aimez bien vous tenir à la pointe du progrès, être au courant de tout ce qui se fait actuellement.",
+    { "id": "q9", "description": "Vous êtes toujours à l'affût des nouveautés, vous aimez bien vous tenir à la pointe du progrès, être au courant de tout ce qui se fait actuellement.",
       "answers": [{"answer": "oui", "categories": ""},{"answer": "non", "categories": "Chercheur" }]}
   ]
 }
