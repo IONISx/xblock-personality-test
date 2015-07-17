@@ -1,14 +1,10 @@
-<div id="settings-tab" class="wrapper-comp-settings editor-with-buttons is-active">
-  <ul class="list-input settings-list">
-    <li class="field comp-setting-entry">
-      <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="xblock-personality-test-exit-label">Your quizz in JSON : </label>
-        <input class="input setting-input" type="text" id="xblock-personality-test-json" value="{{ exit_label }}" required>
-      </div>
-      <span class="tip setting-help">If this field is empty, it will use a default value set by the platform’s administrator.</span>
-    </li>
-  </ul>
+<div id="editor-tab" class="wrapper-comp-editor editor-with-buttons">
+  <section class="taggedtext-editor editor">
+    <textarea class="xml-editor"></textarea>
+  </section>
+
   <div class="xblock-actions">
+    <span class="xblock-editor-error-message"></span>
     <ul>
       <li class="action-item">
         <a href="#" class="button action-primary save-button">Save</a>

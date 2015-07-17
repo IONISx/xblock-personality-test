@@ -32,7 +32,7 @@ setup(
     ],
     entry_points={
         'xblock.v1': [
-            'personalitytest = personalitytest:PersonalityTestXBlock',
+            'personalitytest = personalitytest.personalitytestblock:PersonalityTestXBlock',
         ]
     },
     package_data=package_data("personalitytest", ["static", "public"]),

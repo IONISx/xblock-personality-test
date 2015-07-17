@@ -37,9 +37,6 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     submitDiv.append(submit);
                     myForm.append(submitDiv);
                 }
-                else {
-                    console.error('error');
-                }
             });
     }
 
