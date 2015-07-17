@@ -70,10 +70,10 @@ class PersonalityTestXBlock(XBlock):
         when viewing courses.
         '''
         #if not self.isInitialised():
-        self.init_quizz(self.resource_string('static/data.json'))
+        #self.init_quizz(self.resource_string('static/data.json'))
 
         context = {
-            'quizz': self.questions,
+            #'quizz': self.questions,
             'success': True,
         }
 
@@ -92,9 +92,10 @@ class PersonalityTestXBlock(XBlock):
         when viewing courses.
         '''
         context = {
-            'quizz': self.quizz,
-            'success': True,
+            #'quizz': self.quizz,
+            'success': False,
         }
+
         html = self.render_template('static/html/personalitytest-edit.html', context)
 
         frag = Fragment(html.format(self=self))
@@ -120,7 +121,7 @@ class PersonalityTestXBlock(XBlock):
         The updating handler.
         """
 
-        self.init_quizz(data)
+        self.init_quizz(data['quizz'])
 
         if self.isInitialised():
             return {

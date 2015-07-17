@@ -1,18 +1,17 @@
-<div class="wrapper-comp-settings is-active editor-with-buttons" id="settings-tab">
+<div id="settings-tab" class="wrapper-comp-settings editor-with-buttons is-active">
   <ul class="list-input settings-list">
-    <li class="field comp-setting-entry is-set">
+    <li class="field comp-setting-entry">
       <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="href">Your quizz</label>
-        <input class="input setting-input" name="personality-test-quizz-input" id="personality-test-quizz-input" value="" type="text" />
+        <label class="label setting-label" for="xblock-personality-test-exit-label">Your quizz in JSON : </label>
+        <input class="input setting-input" type="text" id="xblock-personality-test-json" value="{{ exit_label }}" required>
       </div>
-      <span class="tip setting-help">Example: [{categories: [{ title: "", description: "" }],{questions: [{ description: "yes", responses: [{answer: "", categories: "" },{answer: "no", categories: ""}]}}]
-      </span>
+      <span class="tip setting-help">If this field is empty, it will use a default value set by the platform’s administrator.</span>
     </li>
   </ul>
   <div class="xblock-actions">
     <ul>
       <li class="action-item">
-        <a href="#" class="button action-primary personality-test-save-button">Save</a>
+        <a href="#" class="button action-primary save-button">Save</a>
       </li>
       <li class="action-item">
         <a href="#" class="button cancel-button">Cancel</a>
