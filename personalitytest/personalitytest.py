@@ -125,7 +125,7 @@ class PersonalityTestXBlock(XBlock):
         if self.isInitialised():
             return {
                 'success': True,
-                'questions': self.questions
+                'questions': self.questions,
             }
         else:
             return {
