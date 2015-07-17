@@ -1,0 +1,1 @@
+from .personalitytest import PersonalityTestXBlock
