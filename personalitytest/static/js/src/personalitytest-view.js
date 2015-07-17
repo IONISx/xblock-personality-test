@@ -15,6 +15,9 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         var span = $('<span style="padding: 20px"></span>').text(question.description);
                         var select = $('<select ></select>');
 
+                        var opt = new Option("-", false, true);
+                        select.append(opt);
+
                         question['answers'].forEach(function (answer) {
                             console.log(answer);
                             var option = new Option(answer.answer, answer.answer);

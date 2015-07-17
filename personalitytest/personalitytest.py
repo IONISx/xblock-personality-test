@@ -50,7 +50,7 @@ class PersonalityTestXBlock(XBlock):
         self.quizz = data
 
         questions = full_quizz['questions']
-        i = 0
+
         for question in questions:
             for answer in question['answers']:
                 answer['categories'] = ''
