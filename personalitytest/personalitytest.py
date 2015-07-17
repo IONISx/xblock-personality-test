@@ -1,12 +1,14 @@
 '''TO-DO: Write a description of what this XBlock is.'''
 
-import pkg_resources, json
+import pkg_resources
+import json
 
 from django.template import Context, Template
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer, String
+from xblock.fields import Scope, String
 from xblock.fragment import Fragment
+
 
 class PersonalityTestXBlock(XBlock):
     '''
@@ -16,15 +18,14 @@ class PersonalityTestXBlock(XBlock):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
     quizz = String(
-        scope = Scope.content,
-        help = 'Quizz in json'
+        scope=Scope.content,
+        help='Quizz in json'
     )
 
     questions = String(
-        scope = Scope.content,
-        help = 'Quizz without answers'
+        scope=Scope.content,
+        help='Quizz without answers'
     )
-
 
     def resource_string(self, path):
         '''Handy helper for getting resources from our kit.'''
@@ -69,11 +70,11 @@ class PersonalityTestXBlock(XBlock):
         The primary view of the PersonalityTestXBlock, shown to students
         when viewing courses.
         '''
-        #if not self.isInitialised():
-        #self.init_quizz(self.resource_string('static/data.json'))
+        # if not self.isInitialised():
+        # self.init_quizz(self.resource_string('static/data.json'))
 
         context = {
-            #'quizz': self.questions,
+            # 'quizz': self.questions,
             'success': True,
         }
 
@@ -92,7 +93,7 @@ class PersonalityTestXBlock(XBlock):
         when viewing courses.
         '''
         context = {
-            #'quizz': self.quizz,
+            # 'quizz': self.quizz,
             'success': False,
         }
 
@@ -132,7 +133,6 @@ class PersonalityTestXBlock(XBlock):
             return {
                 'success': False,
             }
-
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
