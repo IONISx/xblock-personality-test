@@ -9,19 +9,31 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     var myForm = $('#personality-test-form', element);
 
                     questions.forEach(function (question) {
-                        var div = $('<div></div>');
-                        var span = $('<span></span>').text(question.description);
-                        var select = $('<select></select>');
-                        var options = $('<option></option>');
+                        var div = $('<div class="mainDiv"></div>');
+                        var answerDiv = $('<div class="answerDiv"></div>');
+                        var questionDiv = $('<div  class="questionDiv"></div>');
+                        var span = $('<span style="padding: 20px"></span>').text(question.description);
+                        var select = $('<select ></select>');
+
                         question['answers'].forEach(function (answer) {
                             console.log(answer);
                             var option = new Option(answer.answer, answer.answer);
                             select.append(option);
                         });
-                        div.append(span);
-                        div.append(select);
+                        questionDiv.append(span);
+                        answerDiv.append(select);
+
+                        div.append(questionDiv);
+                        div.append(answerDiv);
+
                         myForm.append(div);
                     });
+                    var submit = $('<div class="action panel-body">');
+                    var button = $('<button class="btn btn-block btn-lg" type="submit">').text('Submit');
+                    var submitDiv = $('<div class="submitDiv"></div>');
+                    submit.append(button);
+                    submitDiv.append(submit);
+                    myForm.append(submitDiv);
                 }
                 else {
                     runtime.notify('error',  {

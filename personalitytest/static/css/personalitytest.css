@@ -1,0 +1,13 @@
+.questionDiv {
+  float: left;
+  width: 80%;
+}
+.answerDiv {
+  float: right;
+  width: 20%;
+}
+
+.submitDiv {
+  width: 100%;
+  float: left;
+}
