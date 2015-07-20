@@ -32,9 +32,13 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 });
                 var submit = $('<div class="action panel-body">');
                 var button = $('<button class="save-button" type="submit">').text('Submit');
+                var errorSpan = $('<span id="error-span"></span>');
                 var submitDiv = $('<div class="submitDiv"></div>');
+                errorSpan.addClass('errorSpan');
+
                 submit.append(button);
                 submitDiv.append(submit);
+                submitDiv.append(errorSpan);
                 myForm.append(submitDiv);
             }
         });
@@ -66,6 +70,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
         });
         json += ']';
         if (errors === 0) {
+            $('#error-span', element).text('');
             var handlerUrl = runtime.handlerUrl(element, 'student_submit');
             var tmp = JSON.parse(json);
             var data = { data: tmp };
@@ -111,6 +116,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
         }
         else {
             console.log('Vous devez répondre à toutes les questions !');
+            $('#error-span', element).text('Vous devez répondre à toutes les questions !');
         }
     });
 }
