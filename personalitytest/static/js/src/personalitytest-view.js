@@ -7,28 +7,28 @@ function PersonalityTestXBlockStudent(runtime, element) {
             if (response.success) {
                 var questions = JSON.parse(response['questions']);
                 var myForm = $('#personality-test-form', element);
+                var tblBody = document.createElement('tbody');
 
                 questions.forEach(function (question) {
-                    var div = $('<div class="mainDiv"></div>');
-                    var answerDiv = $('<div class="answerDiv"></div>');
-                    var questionDiv = $('<div  class="questionDiv"></div>');
-                    var span = $('<span style="padding: 20px"></span>').text(question.description);
-                    var select = $('<select class="select-answer" ></select>');
-
-                    var opt = new Option('-', '', true);
-                    select.append(opt);
+                    var tblRow = tblBody.insertRow();
+                    var select = document.createElement('select');
+                    var opt = document.createElement('option');
+                    opt.text = '-';
+                    opt.value = '';
+                    select.add(opt);
 
                     question['answers'].forEach(function (answer) {
-                        var option = new Option(answer.answer, question['id']);
-                        select.append(option);
+                        var option = document.createElement('option');
+                        option.text = answer.answer;
+                        option.value = question['id'];
+                        select.add(option);
                     });
-                    questionDiv.append(span);
-                    answerDiv.append(select);
 
-                    div.append(questionDiv);
-                    div.append(answerDiv);
+                    tblRow.insertCell().appendChild(document.createTextNode(question.description));
+                    var cell = tblRow.insertCell(1);
+                    cell.appendChild(select);
 
-                    myForm.append(div);
+                    $('#personality-test-form-table', element).append(tblBody);
                 });
                 var submit = $('<div class="action panel-body">');
                 var button = $('<button class="save-button" type="submit">').text('Submit');

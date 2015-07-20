@@ -75,18 +75,6 @@ class PersonalityTestXBlock(XBlock):
         else:
             return True
 
-    # def init_quizz(self, data):
-    #     full_quizz = json.loads(data)
-    #     self.quizz = json.dumps(full_quizz)
-
-    #     questions = full_quizz['questions']
-
-    #     for question in questions:
-    #         for answer in question['answers']:
-    #             answer['categories'] = ''
-
-    #     self.questions = json.dumps(questions)
-
     def extract_answer(self, id):
         answers = json.loads(self.answers)
         for answer in answers:
