@@ -91,7 +91,7 @@ class PersonalityTestXBlock(XBlock):
 
         return cats
 
-    def get_score(self):
+    def init_score(self):
         questions = json.loads(self.quizz)
         score = self.init_categories()
         for question in questions['questions']:
@@ -176,7 +176,7 @@ class PersonalityTestXBlock(XBlock):
             }
 
     @XBlock.json_handler
-    def get_caterogry_dec(self, data, success=''):
+    def get_caterogry_desc(self, data, success=''):
         quizz = json.loads(self.quizz)
         for category in quizz['categories']:
             if category['title'] == data['category']:
@@ -186,6 +186,13 @@ class PersonalityTestXBlock(XBlock):
                 }
 
         return {'success': False}
+
+    @XBlock.json_handler
+    def get_score(self, data, success=''):
+        if not self.score:
+            return {'success': False}
+        else:
+            return {'success': True, 'score': self.score}
 
     @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
@@ -211,7 +218,7 @@ class PersonalityTestXBlock(XBlock):
         The updating handler.
         """
         self.answers = json.dumps(data['data'])
-        self.score = json.dumps(self.get_score())
+        self.score = json.dumps(self.init_score())
 
         return {
             'success': True,

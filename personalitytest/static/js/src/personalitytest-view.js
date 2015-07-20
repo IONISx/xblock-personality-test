@@ -44,7 +44,57 @@ function PersonalityTestXBlockStudent(runtime, element) {
         });
     }
 
+    function getScore() {
+        var handlerUrl = runtime.handlerUrl(element, 'get_score');
+        $.post(handlerUrl, '{}')
+            .done(function (response) {
+                if (response.success) {
+                    var score = JSON.parse(response.score);
+                    var tblBody = document.createElement('tbody');
+                    var max = '';
+                    var last = 0;
+                    $.each(score, function (key, val) {
+                        var tblRow = tblBody.insertRow();
+                        tblRow.insertCell().appendChild(document.createTextNode(key));
+                        tblRow.insertCell().appendChild(document.createTextNode(val));
+
+                        if (val > last) {
+                            max = key;
+                            last = val;
+                        }
+                    });
+
+                    var getCategoryDescription = runtime.handlerUrl(element, 'get_caterogry_desc');
+                    var cat = { 'category' : max };
+                    $.post(getCategoryDescription, JSON.stringify(cat)).done(function (resp) {
+                        if (resp.success) {
+                            var resultDiv = $('#results-panel', element);
+                            resultDiv.show();
+
+                            $('#category-description-span').text(max + ': ' + resp.description);
+                            $('#full-result-table', element).append(tblBody);
+                        }
+                    });
+                }
+            });
+    }
+    function initDisplay() {
+        var handlerUrl = runtime.handlerUrl(element, 'get_score');
+        $.post(handlerUrl, '{}')
+            .done(function (response) {
+                if (response.success) {
+                    $('#personality-test-form', element).hide();
+                    $('#results-panel', element).show();
+                }
+                else {
+                    $('#personality-test-form', element).show();
+                    $('#results-panel', element).hide();
+                }
+            });
+    }
     getQuestions();
+    getScore();
+    initDisplay();
 
     $('#personality-test-form').on('click', '.save-button', function (e) {
         e.preventDefault();
@@ -77,7 +127,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
             $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
                 if (response.success) {
-                    var getCategoryDescription = runtime.handlerUrl(element, 'get_caterogry_dec');
+                    var getCategoryDescription = runtime.handlerUrl(element, 'get_caterogry_desc');
                     var max = '';
                     var last = 0;
                     var score = JSON.parse(response.score);
