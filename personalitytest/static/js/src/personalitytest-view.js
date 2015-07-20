@@ -40,49 +40,48 @@ function PersonalityTestXBlockStudent(runtime, element) {
         });
     }
 
-    $(function () {
-        getQuestions();
+    getQuestions();
 
-        $('#personality-test-form').on('click', '.save-button', function (e) {
-            var json = '{';
-            var first = true;
-            $('select option:selected', element).each(function () {
-                var that = $(this);
-                if (!that.val()) {
-                    runtime.notify('error',  {
-                        title: 'Error : Quizz submission failed.',
-                        message: 'Answer to all question please !'
-                    });
-                    exit;
-                }
-                else
-                {
-                    if (first) {
-                        json += '{' + that.val() + ':' + that.text() + '}';
-                    }
-                    else {
-                        json += ',{' + that.val() + ':' + that.text() + '}';
-                    }
-                    console.log(json);
-                }
-            })
-            console.log(json);
-            json += '}';
-            console.log(json);
-            var handlerUrl = runtime.handlerUrl(element, 'student_submit');
-            var data = { data: json };
+    $('#personality-test-form').on('click', '.save-button', function (e) {
+        e.preventDefault();
+        // addGroupForm.off('submit');
 
-            $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
-                if (response.success) {
-                    console.log(response.score);
+        var json = '[';
+        var first = true;
+        $('select option:selected', element).each(function () {
+            var that = $(this);
+            if (that.text() === '-') {
+                /* runtime.notify('error',  {
+                    title: 'Error : Quizz submission failed.',
+                    message: 'Answer to all question please !'
+                });*/
+                return false;
+            }
+            else {
+                if (first) {
+                    first = false;
+                    json += '{"id":"' + that.val() + '","value":"' + that.text() + '"}';
                 }
                 else {
-                    runtime.notify('error',  {
-                        title: 'Error : save failed.',
-                        message: 'An error occured !'
-                    });
+                    json += ',{"id":"' + that.val() + '","value":"' + that.text() + '"}';
                 }
-            });
+            }
+        });
+        json += ']';
+        var handlerUrl = runtime.handlerUrl(element, 'student_submit');
+        var tmp = JSON.parse(json);
+        var data = { data: tmp };
+
+        $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
+            if (response.success) {
+                console.log(response.score);
+            }
+            else {
+                runtime.notify('error',  {
+                    title: 'Error : save failed.',
+                    message: 'An error occured !'
+                });
+            }
         });
     });
 }
