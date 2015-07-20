@@ -15,7 +15,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     var span = $('<span style="padding: 20px"></span>').text(question.description);
                     var select = $('<select class="select-answer" ></select>');
 
-                    var opt = new Option('-', false, true);
+                    var opt = new Option('-', '', true);
                     select.append(opt);
 
                     question['answers'].forEach(function (answer) {
@@ -72,13 +72,17 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
             $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
                 if (response.success) {
-                    console.log(response.score);
-
                     var getCategoryDescription = runtime.handlerUrl(element, 'get_caterogry_dec');
                     var max = '';
                     var last = 0;
                     var score = JSON.parse(response.score);
+                    var tblBody = document.createElement('tbody');
+
                     $.each(score, function (key, val) {
+                        var tblRow = tblBody.insertRow();
+                        tblRow.insertCell().appendChild(document.createTextNode(key));
+                        tblRow.insertCell().appendChild(document.createTextNode(val));
+
                         if (val > last) {
                             max = key;
                             last = val;
@@ -88,7 +92,13 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     var cat = { 'category' : max };
                     $.post(getCategoryDescription, JSON.stringify(cat)).done(function (resp) {
                         if (resp.success) {
-                            console.log(resp.description);
+                            console.log(max + ': ' + resp.description);
+                            $('#personality-test-form', element).hide();
+                            var resultDiv = $('#results-panel', element);
+                            resultDiv.show();
+
+                            $('#category-description-span').text(max + ': ' + resp.description);
+                            $('#full-result-table', element).append(tblBody);
                         }
                     });
                 }
