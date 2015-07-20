@@ -96,8 +96,8 @@ function PersonalityTestXBlockStudent(runtime, element) {
     getScore();
     initDisplay();
 
-    $('#personality-test-form').on('click', '.save-button', function (e) {
-        e.preventDefault();
+    $('#personality-test-form').on('click', '.save-button', function () {
+        //e.preventDefault();
         // addGroupForm.off('submit');
 
         var json = '[';
@@ -127,34 +127,6 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
             $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
                 if (response.success) {
-                    var getCategoryDescription = runtime.handlerUrl(element, 'get_caterogry_desc');
-                    var max = '';
-                    var last = 0;
-                    var score = JSON.parse(response.score);
-                    var tblBody = document.createElement('tbody');
-
-                    $.each(score, function (key, val) {
-                        var tblRow = tblBody.insertRow();
-                        tblRow.insertCell().appendChild(document.createTextNode(key));
-                        tblRow.insertCell().appendChild(document.createTextNode(val));
-
-                        if (val > last) {
-                            max = key;
-                            last = val;
-                        }
-                    });
-
-                    var cat = { 'category' : max };
-                    $.post(getCategoryDescription, JSON.stringify(cat)).done(function (resp) {
-                        if (resp.success) {
-                            $('#personality-test-form', element).hide();
-                            var resultDiv = $('#results-panel', element);
-                            resultDiv.show();
-
-                            $('#category-description-span').text(max + ': ' + resp.description);
-                            $('#full-result-table', element).append(tblBody);
-                        }
-                    });
                 }
                 else {
                     runtime.notify('error',  {
@@ -168,5 +140,12 @@ function PersonalityTestXBlockStudent(runtime, element) {
             console.log('Vous devez répondre à toutes les questions !');
             $('#error-span', element).text('Vous devez répondre à toutes les questions !');
         }
+    });
+
+    $('#reset-answers', element).on('click', function () {
+        var handlerUrl = runtime.handlerUrl(element, 'reset_answers');
+        $.post(handlerUrl, '{}')
+            .done(function () {
+            });
     });
 }

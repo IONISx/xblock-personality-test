@@ -195,6 +195,13 @@ class PersonalityTestXBlock(XBlock):
             return {'success': True, 'score': self.score}
 
     @XBlock.json_handler
+    def reset_answers(self, data, success=''):
+        self.answers = None
+        self.score = None
+
+        return {'success': True}
+
+    @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
         """
         The updating handler.
