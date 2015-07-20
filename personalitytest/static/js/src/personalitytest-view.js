@@ -48,14 +48,11 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
         var json = '[';
         var first = true;
+        var errors = 0;
         $('select option:selected', element).each(function () {
             var that = $(this);
             if (that.text() === '-') {
-                /* runtime.notify('error',  {
-                    title: 'Error : Quizz submission failed.',
-                    message: 'Answer to all question please !'
-                });*/
-                return false;
+                errors++;
             }
             else {
                 if (first) {
@@ -68,20 +65,43 @@ function PersonalityTestXBlockStudent(runtime, element) {
             }
         });
         json += ']';
-        var handlerUrl = runtime.handlerUrl(element, 'student_submit');
-        var tmp = JSON.parse(json);
-        var data = { data: tmp };
+        if (errors === 0) {
+            var handlerUrl = runtime.handlerUrl(element, 'student_submit');
+            var tmp = JSON.parse(json);
+            var data = { data: tmp };
 
-        $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
-            if (response.success) {
-                console.log(response.score);
-            }
-            else {
-                runtime.notify('error',  {
-                    title: 'Error : save failed.',
-                    message: 'An error occured !'
-                });
-            }
-        });
+            $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
+                if (response.success) {
+                    console.log(response.score);
+
+                    var getCategoryDescription = runtime.handlerUrl(element, 'get_caterogry_dec');
+                    var max = '';
+                    var last = 0;
+                    var score = JSON.parse(response.score);
+                    $.each(score, function (key, val) {
+                        if (val > last) {
+                            max = key;
+                            last = val;
+                        }
+                    });
+
+                    var cat = { 'category' : max };
+                    $.post(getCategoryDescription, JSON.stringify(cat)).done(function (resp) {
+                        if (resp.success) {
+                            console.log(resp.description);
+                        }
+                    });
+                }
+                else {
+                    runtime.notify('error',  {
+                        title: 'Error : save failed.',
+                        message: 'An error occured !'
+                    });
+                }
+            });
+        }
+        else {
+            console.log('Vous devez répondre à toutes les questions !');
+        }
     });
 }

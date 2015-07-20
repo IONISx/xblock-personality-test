@@ -188,6 +188,18 @@ class PersonalityTestXBlock(XBlock):
             }
 
     @XBlock.json_handler
+    def get_caterogry_dec(self, data, success=''):
+        quizz = json.loads(self.quizz)
+        for category in quizz['categories']:
+            if category['title'] == data['category']:
+                return {
+                    'description': category['description'],
+                    'success': True
+                }
+
+        return {'success': False}
+
+    @XBlock.json_handler
     def studio_submit(self, data, suffix=''):
         """
         The updating handler.
