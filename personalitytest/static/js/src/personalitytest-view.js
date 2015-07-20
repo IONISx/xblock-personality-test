@@ -92,7 +92,6 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     var cat = { 'category' : max };
                     $.post(getCategoryDescription, JSON.stringify(cat)).done(function (resp) {
                         if (resp.success) {
-                            console.log(max + ': ' + resp.description);
                             $('#personality-test-form', element).hide();
                             var resultDiv = $('#results-panel', element);
                             resultDiv.show();

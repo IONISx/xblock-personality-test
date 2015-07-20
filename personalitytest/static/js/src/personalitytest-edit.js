@@ -5,8 +5,10 @@ function PersonalityTestXBlockStudio(runtime, element) {
         $.post(handlerUrl, '{}')
             .done(function (response) {
                 if (response.success) {
+                    var tmp = JSON.parse(response.quizz);
                     var xmlEditor = $('.xml-editor', element);
-                    xmlEditor.val(response.quizz);
+
+                    xmlEditor.val(JSON.stringify(tmp));
                 }
             });
     }
