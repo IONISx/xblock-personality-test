@@ -9,6 +9,8 @@ from xblock.core import XBlock
 from xblock.fields import Scope, String
 from xblock.fragment import Fragment
 
+from default import DEFAULT_QUIZZ
+
 
 class PersonalityTestXBlock(XBlock):
     '''
@@ -137,8 +139,8 @@ class PersonalityTestXBlock(XBlock):
         when viewing courses.
         '''
         context = {
-            'quizz': self.quizz,
-            'success': False,
+            'quizz': DEFAULT_QUIZZ if not self.quizz else self.quizz,
+            'success': True,
         }
 
         html = self.render_template('static/html/personalitytest-edit.html', context)
@@ -155,14 +157,11 @@ class PersonalityTestXBlock(XBlock):
         Return the questions json.
         """
         if not self.quizz:
-            return {
-                'success': False
-            }
-        else:
-            return {
-                'success': True,
-                'quizz': self.quizz
-            }
+            self.init_quizz(DEFAULT_QUIZZ)
+        return {
+            'success': True,
+            'quizz': self.quizz
+        }
 
     @XBlock.json_handler
     def get_questions(self, data, suffix=''):
