@@ -35,6 +35,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 var errorSpan = $('<span id="error-span"></span>');
                 var submitDiv = $('<div class="submitDiv"></div>');
                 errorSpan.addClass('errorSpan');
+                $('td', element).addClass('answer-cell');
 
                 submit.append(button);
                 submitDiv.append(submit);
