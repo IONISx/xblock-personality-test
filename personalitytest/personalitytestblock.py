@@ -105,10 +105,12 @@ class PersonalityTestXBlock(XBlock):
             student_answer = self.extract_answer(question['id'])
             for answer in answers:
                 if answer['answer'] == student_answer['value']:
+                    weight = 1 if 'weight' not in answer else answer['weight']
+                    weight = weight if type(weight) == 'int' else 1
                     categories = answer['categories'].split(';')
                     for category in categories:
                         if not category == '':
-                            score[category] = score[category] + 1
+                            score[category] = score[category] + weight
         return score
 
     def student_view(self, context=None):
