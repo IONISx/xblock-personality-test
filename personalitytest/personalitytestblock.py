@@ -14,9 +14,6 @@ class PersonalityTestXBlock(XBlock):
     '''
     TO-DO: document what your XBlock does.
     '''
-
-    # Fields are defined on the class.  You can access them in your code as
-    # self.<fieldname>.
     quizz = String(
         default='',
         scope=Scope.content,
@@ -56,6 +53,14 @@ class PersonalityTestXBlock(XBlock):
         '''
         template_str = self.load_resource(template_path)
         return Template(template_str).render(Context(context))
+
+    def is_json(self, myjson):
+        try:
+            json.loads(myjson)
+        except ValueError, e:
+            print e
+            return False
+        return True
 
     def init_quizz(self, data):
         full_quizz = json.loads(data)
@@ -106,7 +111,6 @@ class PersonalityTestXBlock(XBlock):
                             score[category] = score[category] + 1
         return score
 
-    # TO-DO: change this view to display your data your own way.
     def student_view(self, context=None):
         '''
         The primary view of the PersonalityTestXBlock, shown to students
@@ -114,7 +118,6 @@ class PersonalityTestXBlock(XBlock):
         '''
 
         context = {
-            # 'quizz': self.questions,
             'success': True,
         }
 
@@ -126,7 +129,6 @@ class PersonalityTestXBlock(XBlock):
         frag.initialize_js('PersonalityTestXBlockStudent')
         return frag
 
-    # TO-DO: change this view to display your data your own way.
     def studio_view(self, context=None):
         '''
         The primary view of the PersonalityTestXBlock, shown to students
@@ -206,10 +208,8 @@ class PersonalityTestXBlock(XBlock):
         """
         The updating handler.
         """
-
-        self.init_quizz(data['quizz'])
-
-        if self.isInitialised():
+        if self.is_json(data['quizz']):
+            self.init_quizz(data['quizz'])
             return {
                 'success': True,
                 'questions': self.questions,
@@ -217,6 +217,7 @@ class PersonalityTestXBlock(XBlock):
         else:
             return {
                 'success': False,
+                'errors': 'Invalid JSON.'
             }
 
     @XBlock.json_handler
@@ -232,8 +233,6 @@ class PersonalityTestXBlock(XBlock):
             'score': self.score,
         }
 
-    # TO-DO: change this to create the scenarios you'd like to see in the
-    # workbench while developing your XBlock.
     @staticmethod
     def workbench_scenarios():
         '''A canned scenario for display in the workbench.'''

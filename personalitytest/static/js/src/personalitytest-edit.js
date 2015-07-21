@@ -26,9 +26,8 @@ function PersonalityTestXBlockStudio(runtime, element) {
                     runtime.notify('save', { state: 'end' });
                 }
                 else {
-                    runtime.notify('error',  {
-                        title: 'Error : save failed.',
-                        message: 'Invalid JSON string !'
+                    runtime.notify('error', {
+                        msg: response.errors
                     });
                 }
             });
