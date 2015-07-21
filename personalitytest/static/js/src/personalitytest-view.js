@@ -146,6 +146,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
         var handlerUrl = runtime.handlerUrl(element, 'reset_answers');
         $.post(handlerUrl, '{}')
             .done(function () {
+                initDisplay();
             });
     });
 }

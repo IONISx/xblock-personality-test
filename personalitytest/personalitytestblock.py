@@ -146,21 +146,6 @@ class PersonalityTestXBlock(XBlock):
         return frag
 
     @XBlock.json_handler
-    def get_questions(self, data, suffix=''):
-        """
-        Return the questions json.
-        """
-        if not self.questions:
-            return {
-                'success': False
-            }
-        else:
-            return {
-                'success': True,
-                'questions': self.questions
-            }
-
-    @XBlock.json_handler
     def get_quizz(self, data, suffix=''):
         """
         Return the questions json.
@@ -173,6 +158,21 @@ class PersonalityTestXBlock(XBlock):
             return {
                 'success': True,
                 'quizz': self.quizz
+            }
+
+    @XBlock.json_handler
+    def get_questions(self, data, suffix=''):
+        """
+        Return the questions json.
+        """
+        if not self.questions:
+            return {
+                'success': False
+            }
+        else:
+            return {
+                'success': True,
+                'questions': self.questions
             }
 
     @XBlock.json_handler
