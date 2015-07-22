@@ -30,11 +30,11 @@
         ]},
     { "id": "q3",  "description": "Ressentez-vous de l'irritation lorsque les autres sont lents ?",
       "answers": [
-          {"answer": "Presque la totalité", "weight": 5, "categories": "Dépêche-toi" },
-          {"answer": "La plus grande partie", "weight": 4, "categories": "Dépêche-toi" },
-          {"answer": "Une quantité suffisante", "weight": 3, "categories": "Dépêche-toi" },
-          {"answer": "Une quantité modérée", "weight": 2, "categories": "Dépêche-toi" },
-          {"answer": "Une petite quantité", "weight": 1, "categories": "Dépêche-toi" }
+          {"answer": "Presque toujours", "weight": 5, "categories": "Dépêche-toi" },
+          {"answer": "Souvent", "weight": 4, "categories": "Dépêche-toi" },
+          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Dépêche-toi" },
+          {"answer": "Quelquefois", "weight": 2, "categories": "Dépêche-toi" },
+          {"answer": "Rarement", "weight": 1, "categories": "Dépêche-toi" }
         ]},
     { "id": "q4",  "description": "Vous sentez-vous tenu d'aider les autres ?",
       "answers": [
@@ -212,7 +212,7 @@
           {"answer": "Quelquefois", "weight": 2, "categories": "Fais plus d’effort" },
           {"answer": "Rarement", "weight": 1, "categories": "Fais plus d’effort" }
         ]},
-    { "id": "q26",  "description": "Vous sentez-vous tenu à la précision dans vos communications ??",
+    { "id": "q26",  "description": "Vous sentez-vous tenu à la précision dans vos communications ?",
       "answers": [
           {"answer": "Presque toujours", "weight": 5, "categories": "Sois parfait(e)" },
           {"answer": "Souvent", "weight": 4, "categories": "Sois parfait(e)" },

@@ -20,8 +20,15 @@ function PersonalityTestXBlockStudio(runtime, element) {
             var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
             var data =  { quizz: $('.xml-editor', element).val() };
 
+            var options = {
+                url:handlerUrl,
+                type:'POST',
+                contentType: 'application/json; charset=utf-8',
+                data:JSON.stringify(data)
+            };
+
             runtime.notify('save', { state: 'start' });
-            $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
+            $.ajax(options).done(function (response) {
                 if (response.success) {
                     runtime.notify('save', { state: 'end' });
                 }
