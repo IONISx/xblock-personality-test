@@ -120,9 +120,16 @@ class PersonalityTestXBlock(XBlock):
         The primary view of the PersonalityTestXBlock, shown to students
         when viewing courses.
         '''
+        quizz = json.loads(self.quizz)
+        quizz_title = quizz['meta']['quizz_title']
+        quizz_description = quizz['meta']['quizz_description']
+        answer_description = quizz['meta']['answer_description']
 
         context = {
             'success': True,
+            'quizz_title': quizz_title,
+            'quizz_description': quizz_description,
+            'answer_description': answer_description
         }
 
         html = self.render_template('static/html/personalitytest-view.html', context)

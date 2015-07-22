@@ -2,7 +2,7 @@
   "meta": {
     "quizz_title": "QUELS SONT VOS MESSAGES CONTRAIGNANTS ?",
     "quizz_description": "Pour chaque question, indiquez sous 'résultat' le numéro de la réponse qui vous convient le mieux. Ne passez pas beaucoup de temps sur chaque question: répondez aussi rapidement que vous le pouvez.",
-    "aswer_description": " Interprétation : pour chaque colonne, un total égal ou supérieur à 25 indique la présence du message contraignant correspondant. <br />Une fois que vous réalisez les drivers qui sont activés chez vous, alors posez-vous la question comment leur désobéir sans avoir à vous punir. "
+    "answer_description": " Interprétation : pour chaque colonne, un total égal ou supérieur à 25 indique la présence du message contraignant correspondant. <br />Une fois que vous réalisez les drivers qui sont activés chez vous, alors posez-vous la question comment leur désobéir sans avoir à vous punir. "
   },
   "categories": [
     { "title": "Sois parfait(e)", "description": "" },
