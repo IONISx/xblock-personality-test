@@ -107,7 +107,10 @@ class PersonalityTestXBlock(XBlock):
             student_answer = self.extract_answer(question['id'])
             for answer in answers:
                 if answer['answer'] == student_answer['value']:
-                    weight = 1 if 'weight' not in answer and type(answer['weight']) is int else answer['weight']
+                    weight = 1
+                    if 'weight' in answer:
+                        if type(answer['weight']) is int:
+                            weight = answer['weight']
 
                     categories = answer['categories'].split(';')
                     for category in categories:
@@ -123,7 +126,7 @@ class PersonalityTestXBlock(XBlock):
         quizz = json.loads(self.quizz)
         quizz_title = quizz['meta']['quizz_title']
         quizz_description = quizz['meta']['quizz_description']
-        answer_description = quizz['meta']['answer_description']
+        answer_description = quizz['meta']['result_description']
 
         context = {
             'success': True,

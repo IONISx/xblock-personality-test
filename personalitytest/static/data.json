@@ -1,4 +1,7 @@
 {
+  "meta": {
+    "quizz_title": "", "quizz_description": "", "result_description": ""
+    },
   "categories": [
     { "title": "Novateur", "description": "vous êtes novateur." },
     { "title": "Imaginatif", "description": "vous êtes imaginatif. la tete dans les etoiles, le coeur avec les hommes." },
