@@ -6,7 +6,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
         .done(function (response) {
             if (response.success) {
                 var questions = JSON.parse(response['questions']);
-                var myForm = $('#personality-test-form', element);
+                var myForm = $('.personality-test-form', element);
                 var tblBody = document.createElement('tbody');
 
                 questions.forEach(function (question) {
@@ -28,11 +28,11 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     var cell = tblRow.insertCell(1);
                     cell.appendChild(select);
 
-                    $('#personality-test-form-table', element).append(tblBody);
+                    $('.personality-test-form-table', element).append(tblBody);
                 });
                 var submit = $('<div class="action panel-body">');
                 var button = $('<button class="save-button" type="submit">').text('Submit');
-                var errorSpan = $('<span id="error-span"></span>');
+                var errorSpan = $('<span class="error-span"></span>');
                 var submitDiv = $('<div class="submitDiv"></div>');
                 errorSpan.addClass('errorSpan');
                 $('td', element).addClass('answer-cell');
@@ -69,11 +69,11 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     var cat = { 'category' : max };
                     $.post(getCategoryDescription, JSON.stringify(cat)).done(function (resp) {
                         if (resp.success) {
-                            var resultDiv = $('#results-panel', element);
+                            var resultDiv = $('.results-panel', element);
                             resultDiv.show();
 
-                            $('#category-description-span').text(max + ': ' + resp.description);
-                            $('#full-result-table', element).append(tblBody);
+                            $('.category-description-span').text(max + ': ' + resp.description);
+                            $('.full-result-table', element).append(tblBody);
                         }
                     });
                 }
@@ -84,12 +84,12 @@ function PersonalityTestXBlockStudent(runtime, element) {
         $.post(handlerUrl, '{}')
             .done(function (response) {
                 if (response.success) {
-                    $('#personality-test-form', element).hide();
-                    $('#results-panel', element).show();
+                    $('.personality-test-form', element).hide();
+                    $('.results-panel', element).show();
                 }
                 else {
-                    $('#personality-test-form', element).show();
-                    $('#results-panel', element).hide();
+                    $('.personality-test-form', element).show();
+                    $('.results-panel', element).hide();
                 }
             });
     }
@@ -97,7 +97,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
     getScore();
     initDisplay();
 
-    $('#personality-test-form').on('click', '.save-button', function () {
+    $('.personality-test-form').on('click', '.save-button', function () {
         //e.preventDefault();
         // addGroupForm.off('submit');
 
@@ -121,7 +121,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
         });
         json += ']';
         if (errors === 0) {
-            $('#error-span', element).text('');
+            $('.error-span', element).text('');
             var handlerUrl = runtime.handlerUrl(element, 'student_submit');
             var tmp = JSON.parse(json);
             var data = { data: tmp };
@@ -139,11 +139,11 @@ function PersonalityTestXBlockStudent(runtime, element) {
         }
         else {
             console.log('Vous devez répondre à toutes les questions !');
-            $('#error-span', element).text('Vous devez répondre à toutes les questions !');
+            $('.error-span', element).text('Vous devez répondre à toutes les questions !');
         }
     });
 
-    $('#reset-answers', element).on('click', function () {
+    $('.reset-answers', element).on('click', function () {
         var handlerUrl = runtime.handlerUrl(element, 'reset_answers');
         $.post(handlerUrl, '{}')
             .done(function () {

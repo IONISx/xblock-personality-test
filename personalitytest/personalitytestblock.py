@@ -107,8 +107,8 @@ class PersonalityTestXBlock(XBlock):
             student_answer = self.extract_answer(question['id'])
             for answer in answers:
                 if answer['answer'] == student_answer['value']:
-                    weight = 1 if 'weight' not in answer else answer['weight']
-                    weight = weight if type(weight) == 'int' else 1
+                    weight = 1 if 'weight' not in answer and type(answer['weight']) == 'int' else answer['weight']
+
                     categories = answer['categories'].split(';')
                     for category in categories:
                         if not category == '':
