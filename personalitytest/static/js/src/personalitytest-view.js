@@ -128,6 +128,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
             $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
                 if (response.success) {
+                    initDisplay();
                 }
                 else {
                     runtime.notify('error',  {
