@@ -86,20 +86,20 @@
         ]},
     { "id": "q10",  "description": "Prenez-vous du plaisir à réussir sans lutte ou sans difficulté ?",
       "answers": [
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plus d’effort" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plus d’effort" },
-          {"answer": "De temps en temps", "weight": 4, "categories": "Fais plus d’effort" },
-          {"answer": "La plupart du temps", "weight": 3, "categories": "Fais plus d’effort" },
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plus d’effort" }
+          {"answer": "Rarement", "weight": 5, "categories": "Fais plus d’effort" },
+          {"answer": "Quelquefois", "weight": 4, "categories": "Fais plus d’effort" },
+          {"answer": "De temps en temps", "weight": 3, "categories": "Fais plus d’effort" },
+          {"answer": "La plupart du temps", "weight": 2, "categories": "Fais plus d’effort" },
+          {"answer": "Presque toujours", "weight": 1, "categories": "Fais plus d’effort" }
         ]},
     { "id": "q11",  "description": "Estimez-vous adéquat ce que vous accomplissez ?",
       "answers": [
-          {"answer": "Rarement", "weight": 1, "categories": "Sois parfait(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois parfait(e)" },
-          {"answer": "De temps en temps", "weight": 4, "categories": "Sois parfait(e)" },
-          {"answer": "La plupart du temps", "weight": 3, "categories": "Sois parfait(e)" },
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois parfait(e)" }
-        ]},
+          {"answer": "Rarement", "weight": 5, "categories": "Sois parfait(e)" },
+          {"answer": "Quelquefois", "weight": 4, "categories": "Sois parfait(e)" },
+          {"answer": "De temps en temps", "weight": 3, "categories": "Sois parfait(e)" },
+          {"answer": "La plupart du temps", "weight": 2, "categories": "Sois parfait(e)" },
+          {"answer": "Presque toujours", "weight": 1, "categories": "Sois parfait(e)" }
+       ]},
     { "id": "q12",  "description": "Dites-vous aux autres: «II n’y a pas de quoi se lamenter dans cette situation ?»",
       "answers": [
           {"answer": "Presque toujours", "weight": 5, "categories": "Sois fort(e)" },
@@ -142,11 +142,11 @@
         ]},
     { "id": "q17",  "description": "Vous sentez-vous mal à l'aise de vos «faiblesses» ?",
       "answers": [
-          {"answer": "Dans une très large mesure", "weight": 5, "categories": "Sois parfait(e)" },
-          {"answer": "Dans une mesure importante", "weight": 4, "categories": "Sois parfait(e)" },
-          {"answer": "Dans une certaine mesure", "weight": 3, "categories": "Sois parfait(e)" },
-          {"answer": "Dans une mesure raisonnable", "weight": 2, "categories": "Sois parfait(e)" },
-          {"answer": "Très peu", "weight": 1, "categories": "Sois parfait(e)" }
+          {"answer": "Dans une très large mesure", "weight": 5, "categories": "Sois fort(e)" },
+          {"answer": "Dans une mesure importante", "weight": 4, "categories": "Sois fort(e)" },
+          {"answer": "Dans une certaine mesure", "weight": 3, "categories": "Sois fort(e)" },
+          {"answer": "Dans une mesure raisonnable", "weight": 2, "categories": "Sois fort(e)" },
+          {"answer": "Très peu", "weight": 1, "categories": "Sois fort(e)" }
         ]},
     { "id": "q18",  "description": "Quelle est votre réaction lorsque vous faites la queue ?",
       "answers": [
@@ -166,11 +166,11 @@
         ]},
     { "id": "q20",  "description": "Vous détendez-vous lorsque vous en avez l'occasion ?",
       "answers": [
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plus d’effort" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plus d’effort" },
-          {"answer": "De temps en temps", "weight": 4, "categories": "Fais plus d’effort" },
-          {"answer": "La plupart du temps", "weight": 3, "categories": "Fais plus d’effort" },
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plus d’effort" }
+          {"answer": "Rarement", "weight": 5, "categories": "Fais plus d’effort" },
+          {"answer": "Quelquefois", "weight": 4, "categories": "Fais plus d’effort" },
+          {"answer": "De temps en temps", "weight": 3, "categories": "Fais plus d’effort" },
+          {"answer": "La plupart du temps", "weight": 2, "categories": "Fais plus d’effort" },
+          {"answer": "Presque toujours", "weight": 1, "categories": "Fais plus d’effort" }
         ]},
     { "id": "q21",  "description": "Tendez-vous à la perfection ?",
       "answers": [
