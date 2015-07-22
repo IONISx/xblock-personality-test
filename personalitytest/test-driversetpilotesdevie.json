@@ -212,7 +212,7 @@
           {"answer": "Quelquefois", "weight": 2, "categories": "Fais plus d’effort" },
           {"answer": "Rarement", "weight": 1, "categories": "Fais plus d’effort" }
         ]},
-    { "id": "q26",  "description": "Vous sentez-vous tenu à la précision dans vos communications ?",
+    { "id": "q26",  "description": "Vous sentez-vous tenu à la précision dans vos communications ??",
       "answers": [
           {"answer": "Presque toujours", "weight": 5, "categories": "Sois parfait(e)" },
           {"answer": "Souvent", "weight": 4, "categories": "Sois parfait(e)" },
