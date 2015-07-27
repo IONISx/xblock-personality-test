@@ -7,10 +7,15 @@ function PersonalityTestXBlockStudent(runtime, element) {
             if (response.success) {
                 var questions = JSON.parse(response['questions']);
                 var myForm = $('.personality-test-form', element);
-                var tblBody = document.createElement('tbody');
+                var mainDiv = $('.personality-test-form-table', element);
+                var list = document.createElement('ol');
+                //var tblBody = document.createElement('tbody');
 
                 questions.forEach(function (question) {
-                    var tblRow = tblBody.insertRow();
+                    var questionInList = document.createElement('li');
+                    var spanQuestion = document.createElement('span');
+                    spanQuestion.appendChild(document.createTextNode(question.description));
+
                     var select = document.createElement('select');
                     var opt = document.createElement('option');
                     opt.text = '-';
@@ -23,12 +28,14 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         option.value = question['id'];
                         select.add(option);
                     });
+                    var spanAnswer = document.createElement('span');
+                    spanAnswer.appendChild(select);
+                    questionInList.appendChild(spanQuestion);
+                    questionInList.appendChild(spanAnswer);
 
-                    tblRow.insertCell().appendChild(document.createTextNode(question.description));
-                    var cell = tblRow.insertCell(1);
-                    cell.appendChild(select);
+                    list.appendChild(questionInList);
 
-                    $('.personality-test-form-table', element).append(tblBody);
+                    mainDiv.append(list);
                 });
                 var submit = $('<div class="action panel-body">');
                 var button = $('<button class="save-button" type="submit">').text('Submit');
