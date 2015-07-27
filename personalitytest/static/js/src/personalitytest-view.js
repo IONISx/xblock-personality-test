@@ -97,8 +97,8 @@ function PersonalityTestXBlockStudent(runtime, element) {
     getScore();
     initDisplay();
 
-    $('.personality-test-form').on('click', '.save-button', function () {
-        //e.preventDefault();
+    $('.personality-test-form').on('click', '.save-button', function (e) {
+        e.preventDefault();
         // addGroupForm.off('submit');
 
         var json = '[';
