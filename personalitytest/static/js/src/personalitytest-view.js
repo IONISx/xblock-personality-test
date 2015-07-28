@@ -105,9 +105,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
     $('.personality-test-form').on('click', '.save-button', function (e) {
         e.preventDefault();
-
-        var json = '[';
-        var first = true;
+        var answers = [];
         var errors = 0;
         $('select option:selected', element).each(function () {
             var that = $(this);
@@ -115,22 +113,14 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 errors++;
             }
             else {
-                if (first) {
-                    first = false;
-                    json += '{"id":"' + that.val() + '","value":"' + that.text() + '"}';
-                }
-                else {
-                    json += ',{"id":"' + that.val() + '","value":"' + that.text() + '"}';
-                }
+                answers.push({ id: that.val(), value: that.text() });
             }
         });
-        json += ']';
+
         if (errors === 0) {
             $('.error-span', element).text('');
             var handlerUrl = runtime.handlerUrl(element, 'student_submit');
-            var tmp = JSON.parse(json);
-            var data = { data: tmp };
-
+            var data = { data: answers };
             $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
                 if (response.success) {
                     initDisplay();
