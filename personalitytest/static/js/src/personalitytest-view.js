@@ -84,10 +84,19 @@ function PersonalityTestXBlockStudent(runtime, element) {
             .done(function (response) {
                 if (response.success) {
                     var score = JSON.parse(response.score);
+
+                    var tmp = [];
                     var mainDiv = document.createElement('div');
                     var max = '';
                     var last = 0;
                     $.each(score, function (key, val) {
+                        tmp.push({ id: key, value: val });
+                    });
+                    tmp.sort(function (a, b) { return a.value - b.value; });
+                    tmp.reverse();
+                    tmp.forEach(function (item) {
+                        var key = item['id'];
+                        var val = item['value'];
                         var pairDiv = document.createElement('div');
                         var keyDiv = document.createElement('span');
                         var valueDiv = document.createElement('span');
