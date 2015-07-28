@@ -13,7 +13,6 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 questions.forEach(function (question) {
                     var questionInList = document.createElement('li');
                     var spanQuestion = document.createElement('span');
-                    spanQuestion.appendChild(document.createTextNode(question.description));
 
                     var select = document.createElement('select');
                     var opt = document.createElement('option');
@@ -28,6 +27,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         select.add(option);
                     });
                     spanQuestion.appendChild(select);
+                    spanQuestion.appendChild(document.createTextNode(question.description));
                     questionInList.appendChild(spanQuestion);
 
                     list.appendChild(questionInList);
