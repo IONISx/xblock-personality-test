@@ -16,8 +16,8 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
                     var select = document.createElement('select');
                     var opt = document.createElement('option');
-                    opt.text = '-';
-                    opt.value = '';
+                    opt.text = '';
+                    opt.value = false;
                     select.add(opt);
 
                     question['answers'].forEach(function (answer) {
@@ -112,7 +112,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
         var errors = 0;
         $('select option:selected', element).each(function () {
             var that = $(this);
-            if (that.text() === '-') {
+            if (!that.value) {
                 errors++;
             }
             else {
