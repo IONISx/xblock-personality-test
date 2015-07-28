@@ -12,7 +12,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
                 questions.forEach(function (question) {
                     var questionInList = document.createElement('li');
-                    var spanQuestion = document.createElement('span');
+                    var spanQuestion = document.createElement('div');
 
                     var select = document.createElement('select');
                     var opt = document.createElement('option');
@@ -26,10 +26,14 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         option.value = question['id'];
                         select.add(option);
                     });
-                    spanQuestion.appendChild(select);
+
                     spanQuestion.appendChild(document.createTextNode(question.description));
                     questionInList.appendChild(spanQuestion);
 
+                    var spanAnswer = document.createElement('div');
+                    spanAnswer.appendChild(select);
+
+                    questionInList.appendChild(spanAnswer);
                     list.appendChild(questionInList);
 
                     mainDiv.append(list);
@@ -39,7 +43,6 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 var errorSpan = $('<span class="error-span"></span>');
                 var submitDiv = $('<div class="submitDiv"></div>');
                 errorSpan.addClass('errorSpan');
-                $('td', element).addClass('answer-cell');
 
                 submit.append(button);
                 submitDiv.append(submit);
