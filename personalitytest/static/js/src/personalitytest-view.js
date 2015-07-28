@@ -21,54 +21,58 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 $.post(answersHandleUrl, '{}')
                     .done(function (resp) {
                         var questions = JSON.parse(response['questions']);
+                        var studentAnswers = '';
                         if (resp.success) {
-                            var studentAnswers = JSON.parse(resp['answers']);
-                            console.log(studentAnswers);
-                            var myForm = $('.personality-test-form', element);
-                            var mainDiv = $('.personality-test-form-table', element);
-                            var list = document.createElement('ol');
-
-                            questions.forEach(function (question) {
-                                var questionInList = document.createElement('li');
-                                var spanQuestion = document.createElement('div');
-
-                                var select = document.createElement('select');
-                                var opt = document.createElement('option');
-                                opt.text = '';
-                                opt.value = '';
-                                select.add(opt);
-                                var studentAnswer = getAnswersValue(studentAnswers, question['id']);
-                                question['answers'].forEach(function (answer) {
-                                    var option = document.createElement('option');
-                                    option.text = answer.answer;
-                                    option.value = question['id'];
-                                    if (studentAnswer === answer.answer) {
-                                        option.selected = true;
-                                    }
-                                    select.add(option);
-                                });
-
-                                spanQuestion.appendChild(document.createTextNode(question.description));
-                                questionInList.appendChild(spanQuestion);
-
-                                var spanAnswer = document.createElement('div');
-                                spanAnswer.appendChild(select);
-
-                                questionInList.appendChild(spanAnswer);
-                                list.appendChild(questionInList);
-
-                                mainDiv.append(list);
-                            });
-                            var submit = $('<div class="action panel-body">');
-                            var button = $('<button class="save-button" type="submit">').text('Submit');
-                            var errorSpan = $('<span class="error-span"></span>');
-                            var submitDiv = $('<div class="submitDiv"></div>');
-
-                            submit.append(button);
-                            submitDiv.append(submit);
-                            submitDiv.append(errorSpan);
-                            myForm.append(submitDiv);
+                            studentAnswers = JSON.parse(resp['answers']);
                         }
+
+                        var myForm = $('.personality-test-form', element);
+                        var mainDiv = $('.personality-test-form-table', element);
+                        var list = document.createElement('ol');
+
+                        questions.forEach(function (question) {
+                            var questionInList = document.createElement('li');
+                            var spanQuestion = document.createElement('div');
+
+                            var select = document.createElement('select');
+                            var opt = document.createElement('option');
+                            opt.text = '';
+                            opt.value = '';
+                            select.add(opt);
+                            var studentAnswer = '';
+                            if (studentAnswers !== '') {
+                                studentAnswer = getAnswersValue(studentAnswers, question['id']);
+                            }
+                            question['answers'].forEach(function (answer) {
+                                var option = document.createElement('option');
+                                option.text = answer.answer;
+                                option.value = question['id'];
+                                if (studentAnswers !== '' && studentAnswer === answer.answer) {
+                                    option.selected = true;
+                                }
+                                select.add(option);
+                            });
+
+                            spanQuestion.appendChild(document.createTextNode(question.description));
+                            questionInList.appendChild(spanQuestion);
+
+                            var spanAnswer = document.createElement('div');
+                            spanAnswer.appendChild(select);
+
+                            questionInList.appendChild(spanAnswer);
+                            list.appendChild(questionInList);
+
+                            mainDiv.append(list);
+                        });
+                        var submit = $('<div class="action panel-body">');
+                        var button = $('<button class="save-button" type="submit">').text('Submit');
+                        var errorSpan = $('<span class="error-span"></span>');
+                        var submitDiv = $('<div class="submitDiv"></div>');
+
+                        submit.append(button);
+                        submitDiv.append(submit);
+                        submitDiv.append(errorSpan);
+                        myForm.append(submitDiv);
                     });
             }
         });
