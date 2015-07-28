@@ -13,6 +13,9 @@
     "node": true,
     "browser": true,
     "jquery": true,
+    "predef": {
+        "CodeMirror": true
+    },
 
     "sub": true
 }
