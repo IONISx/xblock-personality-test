@@ -134,6 +134,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
             var that = $(this);
             if (that.val() === '') {
                 errors++;
+                return false;
             }
             else {
                 answers.push({ id: that.val(), value: that.text() });
