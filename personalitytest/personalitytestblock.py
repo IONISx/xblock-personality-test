@@ -73,6 +73,7 @@ class PersonalityTestXBlock(XBlock):
         for question in questions:
             for answer in question['answers']:
                 answer['categories'] = ''
+                answer['weight'] = ''
 
         self.questions = json.dumps(questions)
 
