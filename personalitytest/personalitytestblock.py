@@ -124,7 +124,8 @@ class PersonalityTestXBlock(XBlock):
         The primary view of the PersonalityTestXBlock, shown to students
         when viewing courses.
         '''
-        quizz = json.loads(self.quizz)
+        quizz_str = DEFAULT_QUIZZ if not self.quizz else self.quizz
+        quizz = json.loads(quizz_str)
         quizz_title = quizz['meta']['quizz_title']
         quizz_description = quizz['meta']['quizz_description']
         answer_description = quizz['meta']['result_description']
