@@ -6,6 +6,7 @@ function PersonalityTestXBlockStudio(runtime, element) {
             .done(function (response) {
                 if (response.success) {
                     var tmp = JSON.parse(response.quizz);
+
                     var xmlEditor = CodeMirror.fromTextArea(
                         $('.xml-editor').get(0), {
                             mode: 'application/json',
@@ -25,8 +26,10 @@ function PersonalityTestXBlockStudio(runtime, element) {
 
         $(element).find('.save-button').bind('click', function () {
             var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
+
             var originalDiv = $('.xml-editor');
             var xmlEditor = originalDiv.next('.CodeMirror')[0].CodeMirror;
+
             var data =  { quizz: xmlEditor.getValue() };
 
             var options = {
