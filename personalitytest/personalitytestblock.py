@@ -185,7 +185,7 @@ class PersonalityTestXBlock(XBlock):
     @XBlock.json_handler
     def get_questions(self, data, suffix=''):
         """
-        Return the questions json.
+        Return questions json.
         """
         if not self.questions:
             return {
@@ -195,6 +195,21 @@ class PersonalityTestXBlock(XBlock):
             return {
                 'success': True,
                 'questions': self.questions
+            }
+
+    @XBlock.json_handler
+    def get_answers(self, data, suffix=''):
+        """
+        Return answers json.
+        """
+        if not self.answers:
+            return {
+                'success': False
+            }
+        else:
+            return {
+                'success': True,
+                'answers': self.answers
             }
 
     @XBlock.json_handler
