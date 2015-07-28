@@ -9,7 +9,6 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 var myForm = $('.personality-test-form', element);
                 var mainDiv = $('.personality-test-form-table', element);
                 var list = document.createElement('ol');
-                //var tblBody = document.createElement('tbody');
 
                 questions.forEach(function (question) {
                     var questionInList = document.createElement('li');
@@ -28,10 +27,8 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         option.value = question['id'];
                         select.add(option);
                     });
-                    var spanAnswer = document.createElement('span');
-                    spanAnswer.appendChild(select);
+                    spanQuestion.appendChild(select);
                     questionInList.appendChild(spanQuestion);
-                    questionInList.appendChild(spanAnswer);
 
                     list.appendChild(questionInList);
 
@@ -106,7 +103,6 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
     $('.personality-test-form').on('click', '.save-button', function (e) {
         e.preventDefault();
-        // addGroupForm.off('submit');
 
         var json = '[';
         var first = true;
