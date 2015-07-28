@@ -181,13 +181,9 @@ function PersonalityTestXBlockStudent(runtime, element) {
     });
     $('.personality-test-form').on('change', 'select', function () {
         var handlerUrl = runtime.handlerUrl(element, 'update_answers');
-        var answers = [];
-
-        $('select option:selected', element).each(function () {
-            var that = $(this);
-            if (that.val() !== '') {
-                answers.push({ id: that.val(), value: that.text() });
-            }
+        var answers = Array.prototype.map.call($('select option:selected', element), function (el) {
+            var $el = $(el);
+            return { id: $el.val(), value: $el.text() };
         });
 
         var data = { data: answers };
