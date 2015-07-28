@@ -138,7 +138,29 @@ function PersonalityTestXBlockStudent(runtime, element) {
             $('.error-span', element).text('Vous devez répondre à toutes les questions !');
         }
     });
+    $('.personality-test-form').on('change', 'select', function () {
+        var handlerUrl = runtime.handlerUrl(element, 'update_answers');
+        var answers = [];
 
+        $('select option:selected', element).each(function () {
+            var that = $(this);
+            if (that.val() !== '') {
+                answers.push({ id: that.val(), value: that.text() });
+            }
+        });
+
+        var data = { data: answers };
+        $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
+            if (response.success) {
+            }
+            else {
+                runtime.notify('error',  {
+                    title: 'Error : save failed.',
+                    message: 'An error occured !'
+                });
+            }
+        });
+    });
     $('.reset-answers', element).on('click', function () {
         var handlerUrl = runtime.handlerUrl(element, 'reset_answers');
         $.post(handlerUrl, '{}')

@@ -160,6 +160,17 @@ class PersonalityTestXBlock(XBlock):
         return frag
 
     @XBlock.json_handler
+    def update_answers(self, data, suffix=''):
+        """
+        Update answers.
+        """
+        self.answers = json.dumps(data['data'])
+
+        return {
+            'success': True
+        }
+
+    @XBlock.json_handler
     def get_quizz(self, data, suffix=''):
         """
         Return the questions json.
