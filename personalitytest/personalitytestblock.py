@@ -137,8 +137,8 @@ class PersonalityTestXBlock(XBlock):
         }
 
         html = self.render_template('static/html/personalitytest-view.html', context)
-
         frag = Fragment(html.format(self=self))
+        frag.add_css(self.resource_string('static/css/personalitytest.css'))
         frag.add_javascript(self.resource_string('static/js/src/personalitytest-view.js'))
         frag.initialize_js('PersonalityTestXBlockStudent')
         return frag

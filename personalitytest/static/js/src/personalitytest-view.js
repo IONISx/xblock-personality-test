@@ -80,14 +80,19 @@ function PersonalityTestXBlockStudent(runtime, element) {
             .done(function (response) {
                 if (response.success) {
                     var score = JSON.parse(response.score);
-                    var tblBody = document.createElement('tbody');
+                    var mainDiv = document.createElement('div');
                     var max = '';
                     var last = 0;
                     $.each(score, function (key, val) {
-                        var tblRow = tblBody.insertRow();
-                        tblRow.insertCell().appendChild(document.createTextNode(key));
-                        tblRow.insertCell().appendChild(document.createTextNode(val));
-
+                        var pairDiv = document.createElement('div');
+                        var keyDiv = document.createElement('span');
+                        var valueDiv = document.createElement('span');
+                        keyDiv.appendChild(document.createTextNode(key));
+                        valueDiv.appendChild(document.createTextNode(val));
+                        valueDiv.className = 'valueDiv';
+                        pairDiv.appendChild(keyDiv);
+                        pairDiv.appendChild(valueDiv);
+                        mainDiv.appendChild(pairDiv);
                         if (val > last) {
                             max = key;
                             last = val;
@@ -102,7 +107,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                             resultDiv.show();
 
                             $('.category-description-span').text(max + ': ' + resp.description);
-                            $('.full-result-table', element).append(tblBody);
+                            $('.full-result-table', element).append(mainDiv);
                         }
                     });
                 }

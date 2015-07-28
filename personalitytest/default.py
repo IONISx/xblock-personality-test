@@ -7,18 +7,54 @@ Default data initializations for the block
 
 DEFAULT_QUIZZ = '''
 {
-  "categories": [
-      { "title": "Category1", "description": "description for Category1" }
-    ],
-  "questions": [
-    {
-      "id": "q1", "description": "My first question",
-      "answers": [{"answer": "yes", "categories": "Category1" },{"answer": "no", "categories": ""}]
+    "meta": {
+        "quizz_description": "",
+        "result_description": "",
+        "quizz_title": ""
     },
-    {
-      "id": "q2", "description": "My second question","answers":
-        [{"answer": "yes", "categories": "Category1;Category2" },{"answer": "no", "categories": "Category3"}]
-    }
-  ]
+    "categories": [
+        {
+            "description": "description for Category1",
+            "title": "Category1"
+        },
+        {
+            "description": "description for Category2",
+            "title": "Category2"
+        },
+        {
+            "description": "description for Category3",
+            "title": "Category3"
+        }
+    ],
+    "questions": [
+        {
+            "id": "q1",
+            "answers": [
+                {
+                    "answer": "yes",
+                    "categories": "Category1"
+                },
+                {
+                    "answer": "no",
+                    "categories": ""
+                }
+            ],
+            "description": "My first question"
+        },
+        {
+            "id": "q2",
+            "answers": [
+                {
+                    "answer": "yes",
+                    "categories": "Category1;Category2"
+                },
+                {
+                    "answer": "no",
+                    "categories": "Category3"
+                }
+            ],
+            "description": "My second question"
+        }
+    ]
 }
 '''
