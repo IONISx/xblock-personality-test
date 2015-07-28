@@ -92,8 +92,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     $.each(score, function (key, val) {
                         tmp.push({ id: key, value: val });
                     });
-                    tmp.sort(function (a, b) { return a.value - b.value; });
-                    tmp.reverse();
+                    tmp.sort(function (a, b) { return b.value - a.value; });
                     tmp.forEach(function (item) {
                         var key = item['id'];
                         var val = item['value'];
