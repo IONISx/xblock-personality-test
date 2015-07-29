@@ -165,6 +165,11 @@ class PersonalityTestXBlock(XBlock):
         """
         self.answers = json.dumps(data['data'])
 
+        event_type = 'ionisx.learning.course.personnality-test.save'
+        event_data = {
+            'student_answers': self.answers
+        }
+        self.runtime.publish(self, event_type, event_data)
         return {
             'success': True
         }
@@ -260,9 +265,14 @@ class PersonalityTestXBlock(XBlock):
         """
         The updating handler.
         """
+        event_type = 'ionisx.learning.course.personnality-test.submit'
         self.answers = json.dumps(data['data'])
         self.score = json.dumps(self.init_score())
-
+        event_data = {
+            'student_answers': self.answers,
+            'student_score': self.score
+        }
+        self.runtime.publish(self, event_type, event_data)
         return {
             'success': True,
             'score': self.score,

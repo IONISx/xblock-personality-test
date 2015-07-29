@@ -205,7 +205,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
             var $el = $(el);
             return { id: $el.val(), value: $el.text() };
         });
-        answers = answers.filter(function (a) { return a['value'] !== '' });
+        answers = answers.filter(function (a) { return a['value'] !== ''; });
         var data = { data: answers };
         $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
             if (response.success) {
