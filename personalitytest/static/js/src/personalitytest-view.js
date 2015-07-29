@@ -214,7 +214,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
             }
         });
     });
-    $('.reset-answers', element).on('click', function () {
+    $('.reset-answers-btn', element).on('click', function () {
         var handlerUrl = runtime.handlerUrl(element, 'reset_answers');
         $.post(handlerUrl, '{}')
             .done(function () {
