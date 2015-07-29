@@ -89,25 +89,26 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     var score = JSON.parse(response.score);
 
                     var tmp = [];
-                    var mainDiv = document.createElement('div');
+                    var resultDescription = document.createElement('div');
                     var max = '';
                     var last = 0;
                     $.each(score, function (key, val) {
                         tmp.push({ id: key, value: val });
                     });
                     tmp.sort(function (a, b) { return b.value - a.value; });
+                    var categoriesList = document.createElement('ol');
                     tmp.forEach(function (item) {
                         var key = item['id'];
                         var val = item['value'];
-                        var pairDiv = document.createElement('div');
+                        var listElem = document.createElement('li');
                         var keyDiv = document.createElement('span');
                         var valueDiv = document.createElement('span');
                         keyDiv.appendChild(document.createTextNode(key));
                         valueDiv.appendChild(document.createTextNode(val));
                         valueDiv.className = 'valueDiv';
-                        pairDiv.appendChild(keyDiv);
-                        pairDiv.appendChild(valueDiv);
-                        mainDiv.appendChild(pairDiv);
+                        listElem.appendChild(keyDiv);
+                        listElem.appendChild(valueDiv);
+                        categoriesList.appendChild(listElem);
                         if (val > last) {
                             max = key;
                             last = val;
@@ -116,13 +117,26 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
                     var getCategoryDescription = runtime.handlerUrl(element, 'get_caterogry_desc');
                     var cat = { 'category' : max };
+                    var categoryH3 = document.createElement('h3');
+                    categoryH3.appendChild(document.createTextNode(max));
+
+                    resultDescription.appendChild(categoryH3);
+
                     $.post(getCategoryDescription, JSON.stringify(cat)).done(function (resp) {
                         if (resp.success) {
                             var resultDiv = $('.results-panel', element);
                             resultDiv.show();
 
-                            $('.category-description-span').text(max + ': ' + resp.description);
-                            $('.full-result-table', element).append(mainDiv);
+                            var categoryDescritpion = document.createElement('h4');
+                            categoryDescritpion.appendChild(document.createTextNode(resp.description));
+                            var answersDescritpion = document.createElement('div');
+                            answersDescritpion.appendChild(document.createTextNode(resp['answer_description']));
+                            categoriesList.className = 'value-div';
+                            resultDescription.appendChild(categoryDescritpion);
+                            resultDescription.appendChild(answersDescritpion);
+                            resultDescription.appendChild(categoriesList);
+
+                            $('.full-result-table', element).append(resultDescription);
                         }
                     });
                 }

@@ -127,13 +127,11 @@ class PersonalityTestXBlock(XBlock):
         quizz = json.loads(quizz_str)
         quizz_title = quizz['meta']['quizz_title']
         quizz_description = quizz['meta']['quizz_description']
-        answer_description = quizz['meta']['result_description']
 
         context = {
             'success': True,
             'quizz_title': quizz_title,
             'quizz_description': quizz_description,
-            'answer_description': answer_description
         }
 
         html = self.render_template('static/html/personalitytest-view.html', context)
@@ -220,6 +218,7 @@ class PersonalityTestXBlock(XBlock):
             if category['title'] == data['category']:
                 return {
                     'description': category['description'],
+                    'answer_description': quizz['meta']['result_description'],
                     'success': True
                 }
 
