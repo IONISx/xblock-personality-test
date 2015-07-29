@@ -104,7 +104,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         var keyDiv = document.createElement('span');
                         var valueDiv = document.createElement('span');
                         keyDiv.appendChild(document.createTextNode(key));
-                        valueDiv.appendChild(document.createTextNode(val));
+                        valueDiv.appendChild(document.createTextNode(': ' + val));
                         valueDiv.className = 'valueDiv';
                         listElem.appendChild(keyDiv);
                         listElem.appendChild(valueDiv);
@@ -130,7 +130,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                             var categoryDescritpion = document.createElement('h4');
                             categoryDescritpion.appendChild(document.createTextNode(resp.description));
                             var answersDescritpion = document.createElement('div');
-                            answersDescritpion.appendChild(document.createTextNode(': ' + resp['answer_description']));
+                            answersDescritpion.appendChild(document.createTextNode(resp['answer_description']));
                             categoriesList.className = 'value-div';
                             resultDescription.appendChild(categoryDescritpion);
                             resultDescription.appendChild(answersDescritpion);
