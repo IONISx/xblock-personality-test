@@ -28,11 +28,13 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
                         var myForm = $('.personality-test-form', element);
                         var mainDiv = $('.personality-test-form-table', element);
-                        var list = document.createElement('ol');
 
+                        var list = document.createElement('ol');
+                        var i = 0;
                         questions.forEach(function (question) {
                             var questionInList = document.createElement('li');
                             var spanQuestion = document.createElement('div');
+                            spanQuestion.className = 'question-div';
 
                             var select = document.createElement('select');
                             var opt = document.createElement('option');
@@ -53,10 +55,11 @@ function PersonalityTestXBlockStudent(runtime, element) {
                                 select.add(option);
                             });
 
-                            spanQuestion.appendChild(document.createTextNode(question.description));
+                            spanQuestion.appendChild(document.createTextNode(++i + '. ' + question.description));
                             questionInList.appendChild(spanQuestion);
 
                             var spanAnswer = document.createElement('div');
+                            spanAnswer.className = 'answer-div';
                             spanAnswer.appendChild(select);
 
                             questionInList.appendChild(spanAnswer);
@@ -64,14 +67,14 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
                             mainDiv.append(list);
                         });
-                        var submit = $('<div class="action panel-body">');
+                        var submit = $('<div class="action">');
                         var button = $('<button class="save-button" type="submit">').text('Submit');
                         var errorSpan = $('<span class="error-span"></span>');
-                        var submitDiv = $('<div class="submitDiv"></div>');
+                        var submitDiv = $('<div class="submit-div"></div>');
 
+                        submit.append(errorSpan);
                         submit.append(button);
                         submitDiv.append(submit);
-                        submitDiv.append(errorSpan);
                         myForm.append(submitDiv);
                     });
             }
