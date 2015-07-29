@@ -128,6 +128,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 }
             });
     }
+
     function initDisplay() {
         var handlerUrl = runtime.handlerUrl(element, 'get_score');
         $.post(handlerUrl, '{}')
@@ -142,6 +143,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 }
             });
     }
+
     getQuestions();
     getScore();
     initDisplay();
@@ -167,6 +169,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
             var data = { data: answers };
             $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
                 if (response.success) {
+                    getScore();
                     initDisplay();
                 }
                 else {

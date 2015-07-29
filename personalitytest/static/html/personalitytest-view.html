@@ -1,16 +1,14 @@
 <div class="personnalitytest">
-  <div class="panel-body">
+  <div class="personality-test-inner">
       <form class="personality-test-form" style="display: none;">
       <h2>{{ quizz_title }}</h2>
-      <h3 class="personalitytest-description">{{ quizz_description }}</h3>
-      <br />
-        <div  class="personality-test-form-table"></div>
+      <p class="personalitytest-description">{{ quizz_description }}</p>
+      <div  class="personality-test-form-table "></div>
       </form>
       <div class="results-panel" style="display: none;">
-        <h4 class="answers-description">{{ answer_description }}</h4>
-        <br />
-        <center><h4 class="category-description-span"></h4>
-        <div class="full-result-table"></div></center>
+        <p class="personalitytest-description">{{ answer_description }}</p>
+        <p class="category-description-span"></p>
+        <div class="full-result-table"></div>
         <button class="reset-answers" type="submit">Reset Quizz</button>
       </div>
   </div>
