@@ -130,7 +130,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                             var categoryDescritpion = document.createElement('h4');
                             categoryDescritpion.appendChild(document.createTextNode(resp.description));
                             var answersDescritpion = document.createElement('div');
-                            answersDescritpion.appendChild(document.createTextNode(resp['answer_description']));
+                            answersDescritpion.appendChild(document.createTextNode(': ' + resp['answer_description']));
                             categoriesList.className = 'value-div';
                             resultDescription.appendChild(categoryDescritpion);
                             resultDescription.appendChild(answersDescritpion);
@@ -205,7 +205,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
             var $el = $(el);
             return { id: $el.val(), value: $el.text() };
         });
-
+        answers = answers.filter(function (a) { return a['value'] !== '' });
         var data = { data: answers };
         $.post(handlerUrl, JSON.stringify(data)).done(function (response) {
             if (response.success) {
