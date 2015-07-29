@@ -96,20 +96,16 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         tmp.push({ id: key, value: val });
                     });
                     tmp.sort(function (a, b) { return b.value - a.value; });
-                    var categoriesList = document.createElement('ol');
+                    var categoriesList = document.createElement('dl');
                     tmp.forEach(function (item) {
                         var key = item['id'];
                         var val = item['value'];
-                        var listElem = document.createElement('li');
-                        var keyDiv = document.createElement('span');
-                        var valueDiv = document.createElement('span');
-                        keyDiv.appendChild(document.createTextNode(key));
-                        keyDiv.className = 'category-div';
-                        valueDiv.appendChild(document.createTextNode(': ' + val));
-                        valueDiv.className = 'score-div';
-                        listElem.appendChild(keyDiv);
-                        listElem.appendChild(valueDiv);
-                        categoriesList.appendChild(listElem);
+                        var dtElem = document.createElement('dt');
+                        var ddElem = document.createElement('dd');
+                        dtElem.appendChild(document.createTextNode(key));
+                        ddElem.appendChild(document.createTextNode(val));
+                        categoriesList.appendChild(dtElem);
+                        categoriesList.appendChild(ddElem);
                         if (val > last) {
                             max = key;
                             last = val;
@@ -132,7 +128,6 @@ function PersonalityTestXBlockStudent(runtime, element) {
                             categoryDescritpion.appendChild(document.createTextNode(resp.description));
                             var answersDescritpion = document.createElement('div');
                             answersDescritpion.appendChild(document.createTextNode(resp['answer_description']));
-                            categoriesList.className = 'value-div';
                             resultDescription.appendChild(categoryDescritpion);
                             resultDescription.appendChild(answersDescritpion);
                             resultDescription.appendChild(categoriesList);
