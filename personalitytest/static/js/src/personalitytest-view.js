@@ -68,7 +68,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                             mainDiv.append(list);
                         });
                         var submit = $('<div class="action">');
-                        var button = $('<button class="save-button" type="submit">').text('Submit');
+                        var button = $('<button class="save-button" type="submit">').text('Valider');
                         var errorSpan = $('<span class="error-span"></span>');
                         var submitDiv = $('<div class="submit-div"></div>');
 
