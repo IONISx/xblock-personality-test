@@ -104,8 +104,9 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         var keyDiv = document.createElement('span');
                         var valueDiv = document.createElement('span');
                         keyDiv.appendChild(document.createTextNode(key));
+                        keyDiv.className = 'category-div';
                         valueDiv.appendChild(document.createTextNode(': ' + val));
-                        valueDiv.className = 'valueDiv';
+                        valueDiv.className = 'score-div';
                         listElem.appendChild(keyDiv);
                         listElem.appendChild(valueDiv);
                         categoriesList.appendChild(listElem);
