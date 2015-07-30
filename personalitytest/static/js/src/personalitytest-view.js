@@ -12,6 +12,17 @@ function PersonalityTestXBlockStudent(runtime, element) {
         return tmp;
     }
 
+    function paragraphize(str) {
+        var tmp = str.split('\r\n');
+        var buff = document.createElement('div');
+        tmp.forEach(function (item) {
+            var p = document.createElement('p');
+            p.appendChild(document.createTextNode(item));
+            buff.appendChild(p);
+        });
+        return buff;
+    }
+
     function getQuestions () {
         var handlerUrl = runtime.handlerUrl(element, 'get_questions');
         $.post(handlerUrl, '{}')
@@ -125,7 +136,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                             console.log(desc);
                             desc.forEach(function (it) {
                                 var tmpP = document.createElement('p');
-                                tmpP.appendChild(document.createTextNode(it));
+                                tmpP.appendChild(paragraphize(it));
                                 categoryH3.appendChild(tmpP);
                             });
                             resultDescription.appendChild(categoryH3);
@@ -134,7 +145,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                             resultDiv.show();
 
                             var answersDescritpion = document.createElement('div');
-                            answersDescritpion.appendChild(document.createTextNode(resp['answer_description']));
+                            answersDescritpion.appendChild(paragraphize(resp['answer_description']));
 
                             var tmpP = document.createElement('p');
                             tmpP.appendChild(document.createTextNode('Votre score en détail :'));
