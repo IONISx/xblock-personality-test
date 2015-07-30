@@ -13,7 +13,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
     }
 
     function paragraphize(str) {
-        var tmp = str.split('\r\n');
+        var tmp = str.split('\n');
         var buff = document.createElement('div');
         tmp.forEach(function (item) {
             var p = document.createElement('p');
@@ -133,7 +133,6 @@ function PersonalityTestXBlockStudent(runtime, element) {
                             var categoryH3 = document.createElement('h3');
 
                             var desc = resp['description'].split('###!###');
-                            console.log(desc);
                             desc.forEach(function (it) {
                                 var tmpP = document.createElement('p');
                                 tmpP.appendChild(paragraphize(it));
