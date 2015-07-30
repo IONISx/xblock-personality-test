@@ -113,24 +113,34 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     });
 
                     var getCategoryDescription = runtime.handlerUrl(element, 'get_caterogry_desc');
-                    var cat = { 'category' : max };
-                    var categoryH3 = document.createElement('h3');
-                    categoryH3.appendChild(document.createTextNode(max));
+                    var maxScores = tmp.filter(function (a) { return a['value'] === last; });
+                    max = maxScores.map(function (a) { return a['id']; });
 
-                    resultDescription.appendChild(categoryH3);
-
+                    var cat = { 'categories' : max };
                     $.post(getCategoryDescription, JSON.stringify(cat)).done(function (resp) {
                         if (resp.success) {
+                            var categoryH3 = document.createElement('h3');
+
+                            var desc = resp['description'].split('###!###');
+                            console.log(desc);
+                            desc.forEach(function (it) {
+                                var tmpP = document.createElement('p');
+                                tmpP.appendChild(document.createTextNode(it));
+                                categoryH3.appendChild(tmpP);
+                            });
+                            resultDescription.appendChild(categoryH3);
+
                             var resultDiv = $('.results-panel', element);
                             resultDiv.show();
 
-                            var categoryDescritpion = document.createElement('h4');
-                            categoryDescritpion.appendChild(document.createTextNode(resp.description));
                             var answersDescritpion = document.createElement('div');
                             answersDescritpion.appendChild(document.createTextNode(resp['answer_description']));
-                            resultDescription.appendChild(categoryDescritpion);
-                            resultDescription.appendChild(answersDescritpion);
+
+                            var tmpP = document.createElement('p');
+                            tmpP.appendChild(document.createTextNode('Votre score en détail :'));
+                            resultDescription.appendChild(tmpP);
                             resultDescription.appendChild(categoriesList);
+                            resultDescription.appendChild(answersDescritpion);
 
                             $('.full-result-table', element).append(resultDescription);
                         }

@@ -218,16 +218,21 @@ class PersonalityTestXBlock(XBlock):
 
     @XBlock.json_handler
     def get_caterogry_desc(self, data, success=''):
+        desc = ''
+
         quizz = json.loads(self.quizz)
         for category in quizz['categories']:
-            if category['title'] == data['category']:
-                return {
-                    'description': category['description'],
-                    'answer_description': quizz['meta']['result_description'],
-                    'success': True
-                }
+            if category['title'] in data['categories']:
+                desc = category['description'] if desc == '' else desc + '###!###' + category['description']
 
-        return {'success': False}
+        if not desc == '':
+            return {
+                'description': desc,
+                'answer_description': quizz['meta']['result_description'],
+                'success': True
+            }
+        else:
+            return {'success': False}
 
     @XBlock.json_handler
     def get_score(self, data, success=''):
