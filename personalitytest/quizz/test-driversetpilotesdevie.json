@@ -1,296 +1,1116 @@
 {
-  "meta": {
-    "quizz_title": "QUELS SONT VOS MESSAGES CONTRAIGNANTS ?",
-    "quizz_description": "Pour chaque question, indiquez sous 'résultat' le numéro de la réponse qui vous convient le mieux. Ne passez pas beaucoup de temps sur chaque question: répondez aussi rapidement que vous le pouvez.",
-    "result_description": " Interprétation : pour chaque colonne, un total égal ou supérieur à 25 indique la présence du message contraignant correspondant. <br />Une fois que vous réalisez les drivers qui sont activés chez vous, alors posez-vous la question comment leur désobéir sans avoir à vous punir. "
-  },
-  "categories": [
-    { "title": "Sois parfait(e)", "description": "" },
-    { "title": "Sois fort(e)", "description": "" },
-    { "title": "Dépêche-toi", "description": "" },
-    { "title": "Fais plaisir", "description": "" },
-    { "title": "Fais plus d’effort", "description": "" }
-  ],
-  "questions": [
-    { "id": "q1",  "description": "Pour prendre une décision. Quelle qualité d'information aimez-vous avoir ?",
-      "answers": [
-          {"answer": "Presque la totalité", "weight": 5, "categories": "Sois parfait(e)" },
-          {"answer": "La plus grande partie", "weight": 4, "categories": "Sois parfait(e)" },
-          {"answer": "Une quantité suffisante", "weight": 3, "categories": "Sois parfait(e)" },
-          {"answer": "Une quantité modérée", "weight": 2, "categories": "Sois parfait(e)" },
-          {"answer": "Une petite quantité", "weight": 1, "categories": "Sois parfait(e)" }
-        ]},
-    { "id": "q2",  "description": "A votre avis. Pleurer est-il une faiblesse ?",
-      "answers": [
-          {"answer": "Oui, j'en suis fermement convaincu(e)", "weight": 5, "categories": "Sois fort(e)" },
-          {"answer": "Oui, je le crois", "weight": 4, "categories": "Sois fort(e)" },
-          {"answer": "Sans opinion", "weight": 3, "categories": "Sois fort(e)" },
-          {"answer": "Non, je ne le crois pas", "weight": 2, "categories": "Sois fort(e)" },
-          {"answer": "Non, je suis convaincu(e) du contraire", "weight": 1, "categories": "Sois fort(e)" }
-        ]},
-    { "id": "q3",  "description": "Ressentez-vous de l'irritation lorsque les autres sont lents ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Dépêche-toi" },
-          {"answer": "Souvent", "weight": 4, "categories": "Dépêche-toi" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Dépêche-toi" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Dépêche-toi" },
-          {"answer": "Rarement", "weight": 1, "categories": "Dépêche-toi" }
-        ]},
-    { "id": "q4",  "description": "Vous sentez-vous tenu d'aider les autres ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plaisir" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plaisir" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plaisir" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plaisir" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plaisir" }
-        ]},
-    { "id": "q5",  "description": "Faites-vous des efforts pour atteindre vos objectifs ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plus d’effort" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plus d’effort" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plus d’effort" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plus d’effort" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plus d’effort" }
-        ]},
-    { "id": "q6",  "description": "Vous reprochez-vous vos erreurs ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois parfait(e)" },
-          {"answer": "Souvent", "weight": 4, "categories": "Sois parfait(e)" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Sois parfait(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois parfait(e)" },
-          {"answer": "Rarement", "weight": 1, "categories": "Sois parfait(e)" }
-        ]},
-    { "id": "q7",  "description": "Vous demandez-vous, « D'où vient le fait que je sois blessé(e) et triste ? »",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois fort(e)" },
-          {"answer": "Souvent", "weight": 4, "categories": "Sois fort(e)" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Sois fort(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois fort(e)" },
-          {"answer": "Rarement", "weight": 1, "categories": "Sois fort(e)" }
-        ]},
-    { "id": "q8",  "description": "Arrivez-vous en retard même quand vous vous êtes arrangé(e) pour arriver à temps ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Dépêche-toi" },
-          {"answer": "Souvent", "weight": 4, "categories": "Dépêche-toi" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Dépêche-toi" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Dépêche-toi" },
-          {"answer": "Rarement", "weight": 1, "categories": "Dépêche-toi" }
-        ]},
-    { "id": "q9",  "description": "Offrez-vous votre aide même quand on ne vous la demande pas ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plaisir" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plaisir" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plaisir" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plaisir" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plaisir" }
-        ]},
-    { "id": "q10",  "description": "Prenez-vous du plaisir à réussir sans lutte ou sans difficulté ?",
-      "answers": [
-          {"answer": "Rarement", "weight": 5, "categories": "Fais plus d’effort" },
-          {"answer": "Quelquefois", "weight": 4, "categories": "Fais plus d’effort" },
-          {"answer": "De temps en temps", "weight": 3, "categories": "Fais plus d’effort" },
-          {"answer": "La plupart du temps", "weight": 2, "categories": "Fais plus d’effort" },
-          {"answer": "Presque toujours", "weight": 1, "categories": "Fais plus d’effort" }
-        ]},
-    { "id": "q11",  "description": "Estimez-vous adéquat ce que vous accomplissez ?",
-      "answers": [
-          {"answer": "Rarement", "weight": 5, "categories": "Sois parfait(e)" },
-          {"answer": "Quelquefois", "weight": 4, "categories": "Sois parfait(e)" },
-          {"answer": "De temps en temps", "weight": 3, "categories": "Sois parfait(e)" },
-          {"answer": "La plupart du temps", "weight": 2, "categories": "Sois parfait(e)" },
-          {"answer": "Presque toujours", "weight": 1, "categories": "Sois parfait(e)" }
-       ]},
-    { "id": "q12",  "description": "Dites-vous aux autres: «II n’y a pas de quoi se lamenter dans cette situation ?»",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois fort(e)" },
-          {"answer": "Souvent", "weight": 4, "categories": "Sois fort(e)" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Sois fort(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois fort(e)" },
-          {"answer": "Rarement", "weight": 1, "categories": "Sois fort(e)" }
-        ]},
-    { "id": "q13",  "description": "Prenez-vous un rythme lent en vous disant qu'il faut vous dépêcher ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Dépêche-toi" },
-          {"answer": "Souvent", "weight": 4, "categories": "Dépêche-toi" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Dépêche-toi" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Dépêche-toi" },
-          {"answer": "Rarement", "weight": 1, "categories": "Dépêche-toi" }
-        ]},
-    { "id": "q14",  "description": "Utilisez-vous des expressions comme: « vous savez...», «pourriez-vous... », «Pouvez- vous...», « voudriez-vous...», etc.?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plaisir" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plaisir" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plaisir" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plaisir" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plaisir" }
-        ]},
-    { "id": "q15",  "description": "Etes-vous un(e) adepte de la maxime «Essayez, essayez ; encore, jusqu'à ce que vous réussissiez» ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plus d’effort" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plus d’effort" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plus d’effort" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plus d’effort" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plus d’effort" }
-        ]},
-    { "id": "q16",  "description": "Vérifiez-vous plusieurs fois les paroles des autres de crainte d'une erreur ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois parfait(e)" },
-          {"answer": "Souvent", "weight": 4, "categories": "Sois parfait(e)" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Sois parfait(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois parfait(e)" },
-          {"answer": "Rarement", "weight": 1, "categories": "Sois parfait(e)" }
-        ]},
-    { "id": "q17",  "description": "Vous sentez-vous mal à l'aise de vos «faiblesses» ?",
-      "answers": [
-          {"answer": "Dans une très large mesure", "weight": 5, "categories": "Sois fort(e)" },
-          {"answer": "Dans une mesure importante", "weight": 4, "categories": "Sois fort(e)" },
-          {"answer": "Dans une certaine mesure", "weight": 3, "categories": "Sois fort(e)" },
-          {"answer": "Dans une mesure raisonnable", "weight": 2, "categories": "Sois fort(e)" },
-          {"answer": "Très peu", "weight": 1, "categories": "Sois fort(e)" }
-        ]},
-    { "id": "q18",  "description": "Quelle est votre réaction lorsque vous faites la queue ?",
-      "answers": [
-          {"answer": "J'ai horreur de cela", "weight": 5, "categories": "Dépêche-toi" },
-          {"answer": "Je n'aime pas cela", "weight": 4, "categories": "Dépêche-toi" },
-          {"answer": "Je n'aime ni ne déteste", "weight": 3, "categories": "Dépêche-toi" },
-          {"answer": "J'aime", "weight": 2, "categories": "Dépêche-toi" },
-          {"answer": "J'adore", "weight": 1, "categories": "Dépêche-toi" }
-        ]},
-    { "id": "q19",  "description": "Attendez-vous que l'autre ait fini de parler avant de prendre la parole ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plaisir" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plaisir" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plaisir" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plaisir" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plaisir" }
-        ]},
-    { "id": "q20",  "description": "Vous détendez-vous lorsque vous en avez l'occasion ?",
-      "answers": [
-          {"answer": "Rarement", "weight": 5, "categories": "Fais plus d’effort" },
-          {"answer": "Quelquefois", "weight": 4, "categories": "Fais plus d’effort" },
-          {"answer": "De temps en temps", "weight": 3, "categories": "Fais plus d’effort" },
-          {"answer": "La plupart du temps", "weight": 2, "categories": "Fais plus d’effort" },
-          {"answer": "Presque toujours", "weight": 1, "categories": "Fais plus d’effort" }
-        ]},
-    { "id": "q21",  "description": "Tendez-vous à la perfection ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois parfait(e)" },
-          {"answer": "Souvent", "weight": 4, "categories": "Sois parfait(e)" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Sois parfait(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois parfait(e)" },
-          {"answer": "Rarement", "weight": 1, "categories": "Sois parfait(e)" }
-        ]},
-    { "id": "q22",  "description": "Maîtrisez-vous vos émotions ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois fort(e)" },
-          {"answer": "Souvent", "weight": 4, "categories": "Sois fort(e)" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Sois fort(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois fort(e)" },
-          {"answer": "Rarement", "weight": 1, "categories": "Sois fort(e)" }
-        ]},
-    { "id": "q23",  "description": "Le silence vous met-il mal à l'aise ?",
-      "answers": [
-          {"answer": "Dans une très large mesure", "weight": 5, "categories": "Dépêche-toi" },
-          {"answer": "Dans une mesure importante", "weight": 4, "categories": "Dépêche-toi" },
-          {"answer": "Dans une certaine mesure", "weight": 3, "categories": "Dépêche-toi" },
-          {"answer": "Dans une mesure raisonnable", "weight": 2, "categories": "Dépêche-toi" },
-          {"answer": "Très peu", "weight": 1, "categories": "Dépêche-toi" }
-        ]},
-    { "id": "q24",  "description": "Vérifiez-vous si les autres sont satisfaits de vous et de vos actes ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plaisir" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plaisir" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plaisir" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plaisir" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plaisir" }
-        ]},
-    { "id": "q25",  "description": "Utilisez-vous des tournures comme: «J'essayerai», «Je n'y arrive pas», «C'est difficile», etc.?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plus d’effort" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plus d’effort" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plus d’effort" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plus d’effort" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plus d’effort" }
-        ]},
-    { "id": "q26",  "description": "Vous sentez-vous tenu à la précision dans vos communications ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois parfait(e)" },
-          {"answer": "Souvent", "weight": 4, "categories": "Sois parfait(e)" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Sois parfait(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois parfait(e)" },
-          {"answer": "Rarement", "weight": 1, "categories": "Sois parfait(e)" }
-        ]},
-    { "id": "q27",  "description": "Réagissez-vous à des problèmes en disant: «Pas de commentaires », «Je m'en fous », «Je ne sais pas ce que je ressens», «Cela n'a pas d'importance» ? etc.",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois fort(e)" },
-          {"answer": "Souvent", "weight": 4, "categories": "Sois fort(e)" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Sois fort(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois fort(e)" },
-          {"answer": "Rarement", "weight": 1, "categories": "Sois fort(e)" }
-        ]},
-    { "id": "q28",  "description": "Pianotez-vous ou tapez-vous des pieds en signe d’impatience ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Dépêche-toi" },
-          {"answer": "Souvent", "weight": 4, "categories": "Dépêche-toi" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Dépêche-toi" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Dépêche-toi" },
-          {"answer": "Rarement", "weight": 1, "categories": "Dépêche-toi" }
-        ]},
-    { "id": "q29",  "description": "Pensez-vous que vous devez rendre les autres heureux ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plaisir" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plaisir" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plaisir" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plaisir" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plaisir" }
-        ]},
-    { "id": "q30",  "description": "Vous dites-vous, ou dites-vous aux autres: «Au moins j'ai essayé», ou des phrases semblables ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plus d’effort" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plus d’effort" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plus d’effort" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plus d’effort" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plus d’effort" }
-        ]},
-    { "id": "q31",  "description": "Dites-vous, par exemple: «Cela n'est pas tout à fait exact: voici une autre proposition» ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois parfait(e)" },
-          {"answer": "Souvent", "weight": 4, "categories": "Sois parfait(e)" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Sois parfait(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois parfait(e)" },
-          {"answer": "Rarement", "weight": 1, "categories": "Sois parfait(e)" }
-        ]},
-    { "id": "q32",  "description": "Vous tenez-vous droit, les bras croisés et les mains raides ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Sois fort(e)" },
-          {"answer": "Souvent", "weight": 4, "categories": "Sois fort(e)" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Sois fort(e)" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Sois fort(e)" },
-          {"answer": "Rarement", "weight": 1, "categories": "Sois fort(e)" }
-        ]},
-    { "id": "q33",  "description": "Remettez-vous à plus tard pour ensuite vous précipiter à la dernière minute ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Dépêche-toi" },
-          {"answer": "Souvent", "weight": 4, "categories": "Dépêche-toi" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Dépêche-toi" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Dépêche-toi" },
-          {"answer": "Rarement", "weight": 1, "categories": "Dépêche-toi" }
-        ]},
-    { "id": "q34",  "description": "Pensez-vous qu'une tâche n'a de valeur que si quelqu'un l'approuve ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plaisir" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plaisir" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plaisir" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plaisir" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plaisir" }
-        ]},
-    { "id": "q35",  "description": "Préférez-vous le combat à la victoire ?",
-      "answers": [
-          {"answer": "Presque toujours", "weight": 5, "categories": "Fais plus d’effort" },
-          {"answer": "Souvent", "weight": 4, "categories": "Fais plus d’effort" },
-          {"answer": "D'ordinaire oui", "weight": 3, "categories": "Fais plus d’effort" },
-          {"answer": "Quelquefois", "weight": 2, "categories": "Fais plus d’effort" },
-          {"answer": "Rarement", "weight": 1, "categories": "Fais plus d’effort" }
-        ]}
-  ]
+    "meta": {
+        "quizz_description": "Pour chaque question, indiquez sous 'résultat' le numéro de la réponse qui vous convient le mieux. Ne passez pas beaucoup de temps sur chaque question: répondez aussi rapidement que vous le pouvez.",
+        "result_description": " Interprétation : pour chaque colonne, un total égal ou supérieur à 25 indique la présence du message contraignant correspondant. \r\nUne fois que vous réalisez les drivers qui sont activés chez vous, alors posez-vous la question comment leur désobéir sans avoir à vous punir. ",
+        "quizz_title": "QUELS SONT VOS MESSAGES CONTRAIGNANTS ?"
+    },
+    "categories": [
+        {
+            "description": "Sois parfait(e) : Hérité de discours du type: « tu peux mieux faire », « c’est pas mal mais j’attendais mieux de toi »\r\n– Difficultés: Le sois parfait est perfectionniste, insatisfait et exigeant, il craint le jugement et le manque de contrôle.\r\n– Bénéfices: travailleur, capable de nombreux accomplissements, produit un boulot d’excellente qualité.",
+            "title": "Sois parfait(e)"
+        },
+        {
+            "description": "Sois fort(e) : Hérité de discours du type « il faut être courageux », « un grand garçon ne pleure pas », « ce qui ne nous tue pas nous rend plus forts » etc.\r\n– Difficultés: Le sois fort évite de montrer ses émotions, pense qu’il doit se débrouiller seul, toute autre façon de faire serait un aveu de faiblesse. Il a tendance à être rigide et intolérant et méprisant envers ceux qu’il considère comme des faibles.\r\n– Bénéfices: résistant à la pression et doué pour trouver des solutions ou gérer des situations de crise.",
+            "title": "Sois fort(e)"
+        },
+        {
+            "description": "Dépêche-toi : Hérité de discours type « arrête de traîner », « tu es trop lent » etc.\r\n– Difficultés: agité et impatient, le dépêche-toi se met beaucoup de pression pour en faire toujours plus. Il s’ennuie facilement et préfère la rapidité à la qualité. Prend en charge plus que ce qu’il peut faire.\r\n – Bénéfices: peut honorer des délais très courts, se met en mouvement rapidemment, réactif.",
+            "title": "Dépêche-toi"
+        },
+        {
+            "description": "Fais plaisir : Hérité de discours type « fais plaisir à ta mère », « tu me fais de la peine », « ne sois pas égoîste », « sois gentil, je suis fatigué » etc.\r\n– Difficultés: Le fais plaisir craint de décevoir, il se laisse envahir par les autres, recherche l’approbation, ne sait pas dire non. Il est susceptible et se sent facilement victime de son dévouement.\r\n– Bénéfices: de bonne compagnie, empathique et altruiste.",
+            "title": "Fais plaisir"
+        },
+        {
+            "description": "Fais plus d’effort : Hérité de discours du type « donne-toi un peu de mal », « à vaincre sans effort on triomphe sans gloire » etc.\r\n– Difficultés: Le fait des efforts pense que toute réussite valable passe par des tâches pénibles. Il a tendance à compliquer les choses et à penser que les autres sont paresseux. Il est insatisfait et craint la critique.\r\n– Bénéfices: patient et persévérant, donne le meilleur de lui-même et est prêt à aider les autres.",
+            "title": "Fais plus d’effort"
+        }
+    ],
+    "questions": [
+        {
+            "id": "q1",
+            "answers": [
+                {
+                    "answer": "Presque la totalité",
+                    "weight": 5,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "La plus grande partie",
+                    "weight": 4,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Une quantité suffisante",
+                    "weight": 3,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Une quantité modérée",
+                    "weight": 2,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Une petite quantité",
+                    "weight": 1,
+                    "categories": "Sois parfait(e)"
+                }
+            ],
+            "description": "Pour prendre une décision. Quelle qualité d'information aimez-vous avoir ?"
+        },
+        {
+            "id": "q2",
+            "answers": [
+                {
+                    "answer": "Oui, j'en suis fermement convaincu(e)",
+                    "weight": 5,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Oui, je le crois",
+                    "weight": 4,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Sans opinion",
+                    "weight": 3,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Non, je ne le crois pas",
+                    "weight": 2,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Non, je suis convaincu(e) du contraire",
+                    "weight": 1,
+                    "categories": "Sois fort(e)"
+                }
+            ],
+            "description": "A votre avis. Pleurer est-il une faiblesse ?"
+        },
+        {
+            "id": "q3",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Dépêche-toi"
+                }
+            ],
+            "description": "Ressentez-vous de l'irritation lorsque les autres sont lents ?"
+        },
+        {
+            "id": "q4",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plaisir"
+                }
+            ],
+            "description": "Vous sentez-vous tenu d'aider les autres ?"
+        },
+        {
+            "id": "q5",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plus d’effort"
+                }
+            ],
+            "description": "Faites-vous des efforts pour atteindre vos objectifs ?"
+        },
+        {
+            "id": "q6",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Sois parfait(e)"
+                }
+            ],
+            "description": "Vous reprochez-vous vos erreurs ?"
+        },
+        {
+            "id": "q7",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Sois fort(e)"
+                }
+            ],
+            "description": "Vous demandez-vous, « D'où vient le fait que je sois blessé(e) et triste ? »"
+        },
+        {
+            "id": "q8",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Dépêche-toi"
+                }
+            ],
+            "description": "Arrivez-vous en retard même quand vous vous êtes arrangé(e) pour arriver à temps ?"
+        },
+        {
+            "id": "q9",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plaisir"
+                }
+            ],
+            "description": "Offrez-vous votre aide même quand on ne vous la demande pas ?"
+        },
+        {
+            "id": "q10",
+            "answers": [
+                {
+                    "answer": "Rarement",
+                    "weight": 5,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 4,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "De temps en temps",
+                    "weight": 3,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "La plupart du temps",
+                    "weight": 2,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Presque toujours",
+                    "weight": 1,
+                    "categories": "Fais plus d’effort"
+                }
+            ],
+            "description": "Prenez-vous du plaisir à réussir sans lutte ou sans difficulté ?"
+        },
+        {
+            "id": "q11",
+            "answers": [
+                {
+                    "answer": "Rarement",
+                    "weight": 5,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 4,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "De temps en temps",
+                    "weight": 3,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "La plupart du temps",
+                    "weight": 2,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Presque toujours",
+                    "weight": 1,
+                    "categories": "Sois parfait(e)"
+                }
+            ],
+            "description": "Estimez-vous adéquat ce que vous accomplissez ?"
+        },
+        {
+            "id": "q12",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Sois fort(e)"
+                }
+            ],
+            "description": "Dites-vous aux autres: «II n’y a pas de quoi se lamenter dans cette situation ?»"
+        },
+        {
+            "id": "q13",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Dépêche-toi"
+                }
+            ],
+            "description": "Prenez-vous un rythme lent en vous disant qu'il faut vous dépêcher ?"
+        },
+        {
+            "id": "q14",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plaisir"
+                }
+            ],
+            "description": "Utilisez-vous des expressions comme: « vous savez...», «pourriez-vous... », «Pouvez- vous...», « voudriez-vous...», etc.?"
+        },
+        {
+            "id": "q15",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plus d’effort"
+                }
+            ],
+            "description": "Etes-vous un(e) adepte de la maxime «Essayez, essayez ; encore, jusqu'à ce que vous réussissiez» ?"
+        },
+        {
+            "id": "q16",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Sois parfait(e)"
+                }
+            ],
+            "description": "Vérifiez-vous plusieurs fois les paroles des autres de crainte d'une erreur ?"
+        },
+        {
+            "id": "q17",
+            "answers": [
+                {
+                    "answer": "Dans une très large mesure",
+                    "weight": 5,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Dans une mesure importante",
+                    "weight": 4,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Dans une certaine mesure",
+                    "weight": 3,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Dans une mesure raisonnable",
+                    "weight": 2,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Très peu",
+                    "weight": 1,
+                    "categories": "Sois fort(e)"
+                }
+            ],
+            "description": "Vous sentez-vous mal à l'aise de vos «faiblesses» ?"
+        },
+        {
+            "id": "q18",
+            "answers": [
+                {
+                    "answer": "J'ai horreur de cela",
+                    "weight": 5,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Je n'aime pas cela",
+                    "weight": 4,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Je n'aime ni ne déteste",
+                    "weight": 3,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "J'aime",
+                    "weight": 2,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "J'adore",
+                    "weight": 1,
+                    "categories": "Dépêche-toi"
+                }
+            ],
+            "description": "Quelle est votre réaction lorsque vous faites la queue ?"
+        },
+        {
+            "id": "q19",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plaisir"
+                }
+            ],
+            "description": "Attendez-vous que l'autre ait fini de parler avant de prendre la parole ?"
+        },
+        {
+            "id": "q20",
+            "answers": [
+                {
+                    "answer": "Rarement",
+                    "weight": 5,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 4,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "De temps en temps",
+                    "weight": 3,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "La plupart du temps",
+                    "weight": 2,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Presque toujours",
+                    "weight": 1,
+                    "categories": "Fais plus d’effort"
+                }
+            ],
+            "description": "Vous détendez-vous lorsque vous en avez l'occasion ?"
+        },
+        {
+            "id": "q21",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Sois parfait(e)"
+                }
+            ],
+            "description": "Tendez-vous à la perfection ?"
+        },
+        {
+            "id": "q22",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Sois fort(e)"
+                }
+            ],
+            "description": "Maîtrisez-vous vos émotions ?"
+        },
+        {
+            "id": "q23",
+            "answers": [
+                {
+                    "answer": "Dans une très large mesure",
+                    "weight": 5,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Dans une mesure importante",
+                    "weight": 4,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Dans une certaine mesure",
+                    "weight": 3,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Dans une mesure raisonnable",
+                    "weight": 2,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Très peu",
+                    "weight": 1,
+                    "categories": "Dépêche-toi"
+                }
+            ],
+            "description": "Le silence vous met-il mal à l'aise ?"
+        },
+        {
+            "id": "q24",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plaisir"
+                }
+            ],
+            "description": "Vérifiez-vous si les autres sont satisfaits de vous et de vos actes ?"
+        },
+        {
+            "id": "q25",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plus d’effort"
+                }
+            ],
+            "description": "Utilisez-vous des tournures comme: «J'essayerai», «Je n'y arrive pas», «C'est difficile», etc.?"
+        },
+        {
+            "id": "q26",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Sois parfait(e)"
+                }
+            ],
+            "description": "Vous sentez-vous tenu à la précision dans vos communications ?"
+        },
+        {
+            "id": "q27",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Sois fort(e)"
+                }
+            ],
+            "description": "Réagissez-vous à des problèmes en disant: «Pas de commentaires », «Je m'en fous », «Je ne sais pas ce que je ressens», «Cela n'a pas d'importance» ? etc."
+        },
+        {
+            "id": "q28",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Dépêche-toi"
+                }
+            ],
+            "description": "Pianotez-vous ou tapez-vous des pieds en signe d’impatience ?"
+        },
+        {
+            "id": "q29",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plaisir"
+                }
+            ],
+            "description": "Pensez-vous que vous devez rendre les autres heureux ?"
+        },
+        {
+            "id": "q30",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plus d’effort"
+                }
+            ],
+            "description": "Vous dites-vous, ou dites-vous aux autres: «Au moins j'ai essayé», ou des phrases semblables ?"
+        },
+        {
+            "id": "q31",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Sois parfait(e)"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Sois parfait(e)"
+                }
+            ],
+            "description": "Dites-vous, par exemple: «Cela n'est pas tout à fait exact: voici une autre proposition» ?"
+        },
+        {
+            "id": "q32",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Sois fort(e)"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Sois fort(e)"
+                }
+            ],
+            "description": "Vous tenez-vous droit, les bras croisés et les mains raides ?"
+        },
+        {
+            "id": "q33",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Dépêche-toi"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Dépêche-toi"
+                }
+            ],
+            "description": "Remettez-vous à plus tard pour ensuite vous précipiter à la dernière minute ?"
+        },
+        {
+            "id": "q34",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plaisir"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plaisir"
+                }
+            ],
+            "description": "Pensez-vous qu'une tâche n'a de valeur que si quelqu'un l'approuve ?"
+        },
+        {
+            "id": "q35",
+            "answers": [
+                {
+                    "answer": "Presque toujours",
+                    "weight": 5,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Souvent",
+                    "weight": 4,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "D'ordinaire oui",
+                    "weight": 3,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Quelquefois",
+                    "weight": 2,
+                    "categories": "Fais plus d’effort"
+                },
+                {
+                    "answer": "Rarement",
+                    "weight": 1,
+                    "categories": "Fais plus d’effort"
+                }
+            ],
+            "description": "Préférez-vous le combat à la victoire ?"
+        }
+    ]
 }
