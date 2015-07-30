@@ -16,6 +16,13 @@ class PersonalityTestXBlock(XBlock):
     '''
     TO-DO: document what your XBlock does.
     '''
+    display_name = String(
+        default='Personality Test',
+        display_name='Display Name',
+        scope=Scope.settings,
+        help='This name appears in the horizontal navigation at the top of the page.'
+    )
+
     quizz = String(
         default='',
         scope=Scope.content,
