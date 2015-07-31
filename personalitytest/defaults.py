@@ -4,6 +4,8 @@ Default data initializations for the block
 
 # -*- coding: utf-8 -*-
 
+DISPLAY_NAME = 'Personality Test'
+
 
 DEFAULT_QUIZZ = '''
 {

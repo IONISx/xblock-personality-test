@@ -9,7 +9,7 @@ from xblock.core import XBlock
 from xblock.fields import Scope, String
 from xblock.fragment import Fragment
 
-from default import DEFAULT_QUIZZ
+from .defaults import DEFAULT_QUIZZ, DISPLAY_NAME
 
 
 class PersonalityTestXBlock(XBlock):
@@ -17,7 +17,7 @@ class PersonalityTestXBlock(XBlock):
     TO-DO: document what your XBlock does.
     '''
     display_name = String(
-        default='Personality Test',
+        default=DISPLAY_NAME,
         display_name='Display Name',
         scope=Scope.settings,
         help='This name appears in the horizontal navigation at the top of the page.'
