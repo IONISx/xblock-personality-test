@@ -152,7 +152,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                             resultDescription.appendChild(categoriesList);
                             resultDescription.appendChild(answersDescritpion);
 
-                            $('.full-result-table', element).append(resultDescription);
+                            $('.full-result-table', element).html(resultDescription);
                         }
                     });
                 }
