@@ -22,8 +22,8 @@ def package_data(pkg, roots):
 
 setup(
     name='personalitytest-xblock',
-    version='0.1',
-    description='personalitytest XBlock',   # TODO: write a better description.
+    version='1.0.0',
+    description='Course component (Open edX XBlock) that provides a Personality Test',
     packages=[
         'personalitytest',
     ],
