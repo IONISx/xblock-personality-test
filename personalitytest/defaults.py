@@ -10,9 +10,9 @@ DISPLAY_NAME = 'Personality Test'
 DEFAULT_QUIZZ = '''
 {
     "meta": {
-        "quizz_description": "",
-        "result_description": "",
-        "quizz_title": ""
+        "quizz_description": "This is the test description.",
+        "result_description": "This is the result description.",
+        "quizz_title": "My first personality test !"
     },
     "categories": [
         {
