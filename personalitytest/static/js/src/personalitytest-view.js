@@ -22,7 +22,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
         });
         return buff;
     }
-    function addQuestion (question, list, i, studentAnswers) {
+    function addQuestion (question, list, count, studentAnswers) {
         var questionInList = document.createElement('li');
         var spanQuestion = document.createElement('div');
         spanQuestion.className = 'question-div';
@@ -47,7 +47,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
             select.add(option);
         });
 
-        spanQuestion.appendChild(document.createTextNode(i + '. ' + question.description));
+        spanQuestion.appendChild(document.createTextNode(count + ' ' + question.description));
         questionInList.appendChild(spanQuestion);
 
         var spanAnswer = document.createElement('div');
@@ -76,20 +76,25 @@ function PersonalityTestXBlockStudent(runtime, element) {
 
                         var list = document.createElement('ol');
                         var i = 0;
+                        var ii = 0;
                         questions.forEach(function (question) {
                             if (question.type === 'group') {
                                 var b = document.createElement('b');
-                                b.appendChild(document.createTextNode(question.description));
+                                b.appendChild(document.createTextNode(++i + '.' + question.description));
                                 list.appendChild(b);
                                 var subList = document.createElement('ol');
                                 question.questions.forEach(function (item) {
-                                    addQuestion(item, subList, ++i, studentAnswers);
+                                    ++ii;
+                                    addQuestion(item, subList, i + '.' + ii, studentAnswers);
                                 });
                                 list.appendChild(subList);
+                                ii = 0;
                             }
                             else {
-                                addQuestion(question, list, ++i, studentAnswers);
+                                ii = 0;
+                                addQuestion(question, list, i + '.', studentAnswers);
                             }
+                            ++i;
                             mainDiv.append(list);
                         });
                         var submit = $('<div class="action">');

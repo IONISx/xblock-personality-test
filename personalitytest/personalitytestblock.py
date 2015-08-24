@@ -81,7 +81,7 @@ class PersonalityTestXBlock(XBlock):
             if 'type' not in question or question['type'] != 'group':
                 for answer in question['answers']:
                     answer['categories'] = ''
-            else :
+            else:
                 tmp = question['questions']
                 for quest in tmp:
                     for answer in quest['answers']:
