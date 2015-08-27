@@ -24,8 +24,8 @@ function PersonalityTestXBlockStudent(runtime, element) {
     }
     function addQuestion (question, list, count, studentAnswers) {
         var questionInList = document.createElement('li');
-        var spanQuestion = document.createElement('div');
-        spanQuestion.className = 'question-div';
+        var divQuestion = document.createElement('div');
+        divQuestion.className = 'personality-test-question';
 
         var select = document.createElement('select');
         var opt = document.createElement('option');
@@ -47,14 +47,14 @@ function PersonalityTestXBlockStudent(runtime, element) {
             select.add(option);
         });
 
-        spanQuestion.appendChild(document.createTextNode(count + ' ' + question.description));
-        questionInList.appendChild(spanQuestion);
+        divQuestion.appendChild(document.createTextNode(count + ' ' + question.description));
+        questionInList.appendChild(divQuestion);
 
-        var spanAnswer = document.createElement('div');
-        spanAnswer.className = 'answer-div';
-        spanAnswer.appendChild(select);
+        var divAnswer = document.createElement('div');
+        divAnswer.className = 'personality-test-answer';
+        divAnswer.appendChild(select);
 
-        questionInList.appendChild(spanAnswer);
+        questionInList.appendChild(divAnswer);
         list.appendChild(questionInList);
     }
 
@@ -80,7 +80,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         questions.forEach(function (question) {
                             if (question.type === 'group') {
                                 var b = document.createElement('b');
-                                b.appendChild(document.createTextNode(++i + '.' + question.description));
+                                b.appendChild(document.createTextNode(++i + '. ' + question.description));
                                 list.appendChild(b);
                                 var subList = document.createElement('ol');
                                 question.questions.forEach(function (item) {
