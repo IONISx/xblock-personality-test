@@ -13,14 +13,12 @@ function PersonalityTestXBlockStudent(runtime, element) {
     }
 
     function paragraphize (str) {
-        var tmp = str.split('\n');
-        var buff = $('<div />');
-        tmp.forEach(function (item) {
-            var p = $('<p />');
-            p.text(item);
-            buff.append(p);
+        var lines = str.split('\n');
+        var paragraphsContainer = $('<div />');
+        lines.forEach(function (item) {
+            $('<p />').text(item).appendTo(paragraphsContainer);
         });
-        return buff;
+        return paragraphsContainer;
     }
     function addQuestion (question, list, listCounter, studentAnswers) {
         var questionInList = $('<li />');
@@ -124,8 +122,8 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     tmp.sort(function (a, b) { return b.value - a.value; });
                     var categoriesList = $('<dl />');
                     tmp.forEach(function (item) {
-                        var key = item['id'];
-                        var val = item['value'];
+                        var key = item.id;
+                        var val = item.value;
                         var dtElem = $('<dt />');
                         var ddElem = $('<dd />');
                         dtElem.append(key);
@@ -162,7 +160,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                             answersDescritpion.append(paragraphize(resp['answer_description']));
 
                             var tmpP = $('<p />');
-                            tmpP.append('Votre score en détail :');
+                            tmpP.text('Votre score en détail :');
                             resultDescription.append(tmpP);
                             resultDescription.append(categoriesList);
                             resultDescription.append(answersDescritpion);
