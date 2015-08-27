@@ -74,7 +74,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         questions.forEach(function (question, index) {
                             var i = index + 1;
                             if (question.type === 'group') {
-                                var b = $('<b />');
+                                var b = $('<b />').addClass('personality-test-group-title');
                                 b.append(i + '. ' + question.description);
                                 list.append(b);
                                 var subList = $('<ol />');
