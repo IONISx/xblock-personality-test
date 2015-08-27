@@ -28,25 +28,19 @@ function PersonalityTestXBlockStudent(runtime, element) {
             .addClass('personality-test-question');
 
         var select = $('<select />');
-        var opt = $('<option />')
-            .text('')
-            .val('');
 
-        select.append(opt);
-        var studentAnswer = '';
+        select.append($('<option />'));
+        var studentAnswer;
 
         if (studentAnswers !== '') {
             studentAnswer = getAnswersValue(studentAnswers, question['id']);
         }
         question['answers'].forEach(function (answer) {
-            var option = $('<option />')
-                .text(answer.answer)
-                .val(question['id']);
-
-            if (studentAnswers !== '' && studentAnswer === answer.answer) {
-                option.selected = true;
-            }
-            select.append(option);
+            $('<option />', {
+                value: question.id,
+                text: answer.answer,
+                selected: (studentAnswers !== '' && studentAnswer === answer.answer)
+            }).appendTo(select);
         });
 
         divQuestion.append(listCounter + ' ' + question.description);
