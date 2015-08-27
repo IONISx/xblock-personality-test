@@ -22,8 +22,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
     }
     function addQuestion (question, list, listCounter, studentAnswers) {
         var questionInList = $('<li />');
-        var divQuestion = $('<div />')
-            .addClass('personality-test-question');
+        var divQuestion = $('<div />').addClass('personality-test-question');
 
         var select = $('<select />');
 
@@ -44,8 +43,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
         divQuestion.append(listCounter + ' ' + question.description);
         questionInList.append(divQuestion);
 
-        var divAnswer = $('<div />')
-            .addClass('personality-test-answer');
+        var divAnswer = $('<div />').addClass('personality-test-answer');
         divAnswer.append(select);
 
         questionInList.append(divAnswer);

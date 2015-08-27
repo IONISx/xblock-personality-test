@@ -111,7 +111,7 @@ class PersonalityTestXBlock(XBlock):
 
         return cats
 
-    def score_by_question(question, score, self):
+    def score_by_question(self, question, score):
         answers = question['answers']
 
         student_answer = self.extract_answer(question['id'])
@@ -131,11 +131,12 @@ class PersonalityTestXBlock(XBlock):
         questions = json.loads(self.quizz)
         score = self.init_categories()
         for question in questions['questions']:
-            if not question.type:
-                self.score_by_question(question, score, self)
-            elif question.type == 'group':
-                for quest in question.questions:
+            type = question.get('type', 'question')
+            if type == 'group':
+                for quest in question['questions']:
                     self.score_by_question(quest, score)
+            else:
+                self.score_by_question(question, score)
 
         return score
 
