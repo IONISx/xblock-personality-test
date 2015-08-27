@@ -22,7 +22,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
         });
         return buff;
     }
-    function addQuestion (question, list, count, studentAnswers) {
+    function addQuestion (question, list, listCounter, studentAnswers) {
         var questionInList = document.createElement('li');
         var divQuestion = document.createElement('div');
         divQuestion.className = 'personality-test-question';
@@ -47,7 +47,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
             select.add(option);
         });
 
-        divQuestion.appendChild(document.createTextNode(count + ' ' + question.description));
+        divQuestion.appendChild(document.createTextNode(listCounter + ' ' + question.description));
         questionInList.appendChild(divQuestion);
 
         var divAnswer = document.createElement('div');
@@ -78,9 +78,11 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         var i = 0;
                         var ii = 0;
                         questions.forEach(function (question) {
+                            ++i;
+
                             if (question.type === 'group') {
                                 var b = document.createElement('b');
-                                b.appendChild(document.createTextNode(++i + '. ' + question.description));
+                                b.appendChild(document.createTextNode(i + '. ' + question.description));
                                 list.appendChild(b);
                                 var subList = document.createElement('ol');
                                 question.questions.forEach(function (item) {
@@ -94,7 +96,6 @@ function PersonalityTestXBlockStudent(runtime, element) {
                                 ii = 0;
                                 addQuestion(question, list, i + '.', studentAnswers);
                             }
-                            ++i;
                             mainDiv.append(list);
                         });
                         var submit = $('<div class="action">');
