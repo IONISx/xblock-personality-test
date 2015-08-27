@@ -212,6 +212,7 @@ class PersonalityTestXBlock(XBlock):
         """
         Return questions json.
         """
+        quizz = json.loads(self.quizz)
         if not self.questions:
             return {
                 'success': False
@@ -219,6 +220,7 @@ class PersonalityTestXBlock(XBlock):
         else:
             return {
                 'success': True,
+                'quizz_description': quizz['meta']['quizz_description'],
                 'questions': self.questions
             }
 

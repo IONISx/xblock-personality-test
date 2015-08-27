@@ -67,6 +67,7 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 $.post(answersHandleUrl, '{}')
                     .done(function (resp) {
                         var questions = JSON.parse(response['questions']);
+                        $('.personality-test-description', element).append(paragraphize(response['quizz_description']));
                         var studentAnswers = '';
                         if (resp.success) {
                             studentAnswers = JSON.parse(resp['answers']);
