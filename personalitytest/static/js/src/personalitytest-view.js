@@ -78,11 +78,9 @@ function PersonalityTestXBlockStudent(runtime, element) {
                         var mainDiv = $('.personality-test-form-table', element);
 
                         var list = $('<ol />');
-                        var i = 0;
                         var ii = 0;
-                        questions.forEach(function (question) {
-                            ++i;
-
+                        questions.forEach(function (question, index) {
+                            var i = index + 1;
                             if (question.type === 'group') {
                                 var b = $('<b />');
                                 b.append(i + '. ' + question.description);
