@@ -24,7 +24,8 @@ function PersonalityTestXBlockStudent(runtime, element) {
     }
     function addQuestion (question, list, listCounter, studentAnswers) {
         var questionInList = $('<li />');
-        var divQuestion = $('<div />').addClass('personality-test-question');
+        var divQuestion = $('<div />')
+            .addClass('personality-test-question');
 
         var select = $('<select />');
         var opt = $('<option />')
