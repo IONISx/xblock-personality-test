@@ -12,15 +12,42 @@ function PersonalityTestXBlockStudent(runtime, element) {
         return tmp;
     }
 
-    function paragraphize(str) {
-        var tmp = str.split('\n');
-        var buff = document.createElement('div');
-        tmp.forEach(function (item) {
-            var p = document.createElement('p');
-            p.appendChild(document.createTextNode(item));
-            buff.appendChild(p);
+    function paragraphize (str) {
+        var lines = str.split('\n');
+        var paragraphsContainer = $('<div />');
+        lines.forEach(function (item) {
+            $('<p />').text(item).appendTo(paragraphsContainer);
         });
-        return buff;
+        return paragraphsContainer;
+    }
+    function addQuestion (question, list, listCounter, studentAnswers) {
+        var questionInList = $('<li />');
+        var divQuestion = $('<div />').addClass('personality-test-question');
+
+        var select = $('<select />');
+
+        select.append($('<option />'));
+        var studentAnswer;
+
+        if (studentAnswers !== '') {
+            studentAnswer = getAnswersValue(studentAnswers, question['id']);
+        }
+        question['answers'].forEach(function (answer) {
+            $('<option />', {
+                value: question.id,
+                text: answer.answer,
+                selected: (studentAnswers !== '' && studentAnswer === answer.answer)
+            }).appendTo(select);
+        });
+
+        divQuestion.append(listCounter + ' ' + question.description);
+        questionInList.append(divQuestion);
+
+        var divAnswer = $('<div />').addClass('personality-test-answer');
+        divAnswer.append(select);
+
+        questionInList.append(divAnswer);
+        list.append(questionInList);
     }
 
     function getQuestions () {
@@ -32,50 +59,34 @@ function PersonalityTestXBlockStudent(runtime, element) {
                 $.post(answersHandleUrl, '{}')
                     .done(function (resp) {
                         var questions = JSON.parse(response['questions']);
+                        $('.personality-test-description', element).append(paragraphize(response['quizz_description']));
                         var studentAnswers = '';
                         if (resp.success) {
                             studentAnswers = JSON.parse(resp['answers']);
                         }
-
                         var myForm = $('.personality-test-form', element);
                         var mainDiv = $('.personality-test-form-table', element);
 
-                        var list = document.createElement('ol');
-                        var i = 0;
-                        questions.forEach(function (question) {
-                            var questionInList = document.createElement('li');
-                            var spanQuestion = document.createElement('div');
-                            spanQuestion.className = 'question-div';
-
-                            var select = document.createElement('select');
-                            var opt = document.createElement('option');
-                            opt.text = '';
-                            opt.value = '';
-                            select.add(opt);
-                            var studentAnswer = '';
-                            if (studentAnswers !== '') {
-                                studentAnswer = getAnswersValue(studentAnswers, question['id']);
+                        var list = $('<ol />');
+                        var ii = 0;
+                        questions.forEach(function (question, index) {
+                            var i = index + 1;
+                            if (question.type === 'group') {
+                                var b = $('<b />').addClass('personality-test-group-title');
+                                b.append(i + '. ' + question.description);
+                                list.append(b);
+                                var subList = $('<ol />');
+                                question.questions.forEach(function (item) {
+                                    ++ii;
+                                    addQuestion(item, subList, i + '.' + ii, studentAnswers);
+                                });
+                                list.append(subList);
+                                ii = 0;
                             }
-                            question['answers'].forEach(function (answer) {
-                                var option = document.createElement('option');
-                                option.text = answer.answer;
-                                option.value = question['id'];
-                                if (studentAnswers !== '' && studentAnswer === answer.answer) {
-                                    option.selected = true;
-                                }
-                                select.add(option);
-                            });
-
-                            spanQuestion.appendChild(document.createTextNode(++i + '. ' + question.description));
-                            questionInList.appendChild(spanQuestion);
-
-                            var spanAnswer = document.createElement('div');
-                            spanAnswer.className = 'answer-div';
-                            spanAnswer.appendChild(select);
-
-                            questionInList.appendChild(spanAnswer);
-                            list.appendChild(questionInList);
-
+                            else {
+                                ii = 0;
+                                addQuestion(question, list, i + '.', studentAnswers);
+                            }
                             mainDiv.append(list);
                         });
                         var submit = $('<div class="action">');
@@ -100,23 +111,23 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     var score = JSON.parse(response.score);
 
                     var tmp = [];
-                    var resultDescription = document.createElement('div');
+                    var resultDescription = $('<div />');
                     var max = '';
                     var last = 0;
                     $.each(score, function (key, val) {
                         tmp.push({ id: key, value: val });
                     });
                     tmp.sort(function (a, b) { return b.value - a.value; });
-                    var categoriesList = document.createElement('dl');
+                    var categoriesList = $('<dl />');
                     tmp.forEach(function (item) {
-                        var key = item['id'];
-                        var val = item['value'];
-                        var dtElem = document.createElement('dt');
-                        var ddElem = document.createElement('dd');
-                        dtElem.appendChild(document.createTextNode(key));
-                        ddElem.appendChild(document.createTextNode(val));
-                        categoriesList.appendChild(dtElem);
-                        categoriesList.appendChild(ddElem);
+                        var key = item.id;
+                        var val = item.value;
+                        var dtElem = $('<dt />');
+                        var ddElem = $('<dd />');
+                        dtElem.append(key);
+                        ddElem.append(val);
+                        categoriesList.append(dtElem);
+                        categoriesList.append(ddElem);
                         if (val > last) {
                             max = key;
                             last = val;
@@ -130,27 +141,27 @@ function PersonalityTestXBlockStudent(runtime, element) {
                     var cat = { 'categories' : max };
                     $.post(getCategoryDescription, JSON.stringify(cat)).done(function (resp) {
                         if (resp.success) {
-                            var categoryH3 = document.createElement('h3');
+                            var categoryH3 = $('<h3 />');
 
                             var desc = resp['description'].split('###!###');
                             desc.forEach(function (it) {
-                                var tmpP = document.createElement('p');
-                                tmpP.appendChild(paragraphize(it));
-                                categoryH3.appendChild(tmpP);
+                                var tmpP = $('<p />');
+                                tmpP.append(paragraphize(it));
+                                categoryH3.append(tmpP);
                             });
-                            resultDescription.appendChild(categoryH3);
+                            resultDescription.append(categoryH3);
 
                             var resultDiv = $('.results-panel', element);
                             resultDiv.show();
 
-                            var answersDescritpion = document.createElement('div');
-                            answersDescritpion.appendChild(paragraphize(resp['answer_description']));
+                            var answersDescritpion = $('<div />');
+                            answersDescritpion.append(paragraphize(resp['answer_description']));
 
-                            var tmpP = document.createElement('p');
-                            tmpP.appendChild(document.createTextNode('Votre score en détail :'));
-                            resultDescription.appendChild(tmpP);
-                            resultDescription.appendChild(categoriesList);
-                            resultDescription.appendChild(answersDescritpion);
+                            var tmpP = $('<p />');
+                            tmpP.text('Votre score en détail :');
+                            resultDescription.append(tmpP);
+                            resultDescription.append(categoriesList);
+                            resultDescription.append(answersDescritpion);
 
                             $('.full-result-table', element).html(resultDescription);
                         }

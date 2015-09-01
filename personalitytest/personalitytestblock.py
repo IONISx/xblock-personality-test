@@ -78,8 +78,14 @@ class PersonalityTestXBlock(XBlock):
         questions = full_quizz['questions']
 
         for question in questions:
-            for answer in question['answers']:
-                answer['categories'] = ''
+            if 'type' not in question or question['type'] != 'group':
+                for answer in question['answers']:
+                    answer['categories'] = ''
+            else:
+                tmp = question['questions']
+                for quest in tmp:
+                    for answer in quest['answers']:
+                        answer['categories'] = ''
 
         self.questions = json.dumps(questions)
 
@@ -105,24 +111,33 @@ class PersonalityTestXBlock(XBlock):
 
         return cats
 
+    def score_by_question(self, question, score):
+        answers = question['answers']
+
+        student_answer = self.extract_answer(question['id'])
+        for answer in answers:
+            if answer['answer'] == student_answer['value']:
+                weight = 1
+                if 'weight' in answer:
+                    if type(answer['weight']) is int:
+                        weight = answer['weight']
+
+                categories = answer['categories'].split(';')
+                for category in categories:
+                    if not category == '':
+                        score[category] = score[category] + weight
+
     def init_score(self):
         questions = json.loads(self.quizz)
         score = self.init_categories()
         for question in questions['questions']:
-            answers = question['answers']
+            type = question.get('type', 'question')
+            if type == 'group':
+                for quest in question['questions']:
+                    self.score_by_question(quest, score)
+            else:
+                self.score_by_question(question, score)
 
-            student_answer = self.extract_answer(question['id'])
-            for answer in answers:
-                if answer['answer'] == student_answer['value']:
-                    weight = 1
-                    if 'weight' in answer:
-                        if type(answer['weight']) is int:
-                            weight = answer['weight']
-
-                    categories = answer['categories'].split(';')
-                    for category in categories:
-                        if not category == '':
-                            score[category] = score[category] + weight
         return score
 
     def student_view(self, context=None):
@@ -198,6 +213,7 @@ class PersonalityTestXBlock(XBlock):
         """
         Return questions json.
         """
+        quizz = json.loads(self.quizz)
         if not self.questions:
             return {
                 'success': False
@@ -205,6 +221,7 @@ class PersonalityTestXBlock(XBlock):
         else:
             return {
                 'success': True,
+                'quizz_description': quizz['meta']['quizz_description'],
                 'questions': self.questions
             }
 
