@@ -22,7 +22,7 @@ def package_data(pkg, roots):
 
 setup(
     name='personalitytest-xblock',
-    version='1.0.1',
+    version='1.1.0',
     description='Course component (Open edX XBlock) that provides a Personality Test',
     packages=[
         'personalitytest',
